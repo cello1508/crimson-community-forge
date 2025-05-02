@@ -24,17 +24,15 @@ const HeroSection = () => {
       
       <div className="flex-1 mt-10 md:mt-0">
         <div className="container-dark p-8 space-y-6">
-          <div className="aspect-w-16 aspect-h-9 rounded-lg bg-black flex items-center justify-center">
-            <div className="text-center">
-              <p className="text-xl mb-4">Vídeo de explicação</p>
-              <div className="w-16 h-16 mx-auto rounded-full bg-crimson/20 flex items-center justify-center">
-                <div className="w-14 h-14 rounded-full bg-crimson/40 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-crimson flex items-center justify-center">
-                    <span className="text-white text-3xl">▶</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-black">
+            <iframe 
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/zKk3rnqlGLY" 
+              title="Demonstração da comunidade" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen>
+            </iframe>
           </div>
           
           <div className="space-y-6">
