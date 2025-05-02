@@ -4,6 +4,8 @@ import { ArrowDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 interface AgentTargetProps {
   title: string;
   description: string;
@@ -16,9 +18,11 @@ const AgentTarget = ({
   index,
   imageUrl
 }: AgentTargetProps) => {
+  const isMobile = useIsMobile();
+  
   return <div className="flex flex-col h-full border border-zinc-800 hover:border-crimson/30 rounded-lg overflow-hidden transition-all duration-300 bg-black">
       {/* Top image section */}
-      <div className="relative h-72 bg-black">
+      <div className={`relative ${isMobile ? 'h-96' : 'h-72'} bg-black`}>
         <img src={imageUrl} alt={title} className="w-full h-full object-cover object-center opacity-90" />
         
         {/* Title overlay at top */}
