@@ -21,6 +21,7 @@ const Index = () => {
       <HeroSection />
       <TestimonialsCarousel />
       <BenefitsSection />
+      <MethodologySection />
       <YoutubeFeedbackSection />
       <ArsenalDeVendasSection />
       <DifferentialsSection />

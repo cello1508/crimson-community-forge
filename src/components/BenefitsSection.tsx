@@ -1,6 +1,6 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import MethodologySection from "./MethodologySection";
 
 interface BenefitCardProps {
   title: string;
@@ -25,37 +25,41 @@ const BenefitCard = ({
 };
 
 const BenefitsSection = () => {
-  const benefits = [
-    {
-      title: "Call de suporte toda Quarta feira",
-      description: "Por mais que tem muita coisa que voce pode aprender gratuitamente pela internet, sao conteudos dispersos e vai surgir duvidas em sua mente durante o processo ou até mesmo erro na hora de montar a automacao, acredite 87% dos membros da comunidade relatam isso",
-      emoji: "📞"
-    }, {
-      title: "Comunidade Ativa",
-      description: "Converse e tire duvidas com pessoas que ja implementao, vendem, desenvolvem ou até mesmo compram seus projetos. A comunidade do checklist exietem pioneiros na aréa e profissionais que ja faturam 6 digitos mes",
-      emoji: "👥"
-    }, {
-      title: "Atualizacoes de Aulas",
-      description: "Muitos cursos por ai te dao passo a passos desatualizados, e nesse mercado de IA e Agentes, voce nao pode depender disso, na mesmo velocidade da tecnologia o seu conhecimento tambem precisa se atualizar!",
-      emoji: "🔄"
-    }, {
-      title: "Imersoes gratuitas",
-      description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
-      emoji: "🚀"
-    }
-  ];
+  const benefits = [{
+    title: "Call de suporte toda Quarta feira",
+    description: "Por mais que tem muita coisa que voce pode aprender gratuitamente pela internet, sao conteudos dispersos e vai surgir duvidas em sua mente durante o processo ou até mesmo erro na hora de montar a automacao, acredite 87% dos membros da comunidade relatam isso",
+    emoji: "📞"
+  }, {
+    title: "Comunidade Ativa",
+    description: "Converse e tire duvidas com pessoas que ja implementao, vendem, desenvolvem ou até mesmo compram seus projetos. A comunidade do checklist exietem pioneiros na aréa e profissionais que ja faturam 6 digitos mes",
+    emoji: "👥"
+  }, {
+    title: "Atualizacoes de Aulas",
+    description: "Muitos cursos por ai te dao passo a passos desatualizados, e nesse mercado de IA e Agentes, voce nao pode depender disso, na mesmo velocidade da tecnologia o seu conhecimento tambem precisa se atualizar!",
+    emoji: "🔄"
+  }, {
+    title: "Imersoes gratuitas",
+    description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
+    emoji: "🚀"
+  }];
 
   return <section className="section-padding section-container">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-6 flex flex-col md:flex-row items-center gap-8">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Benefícios de participar da comunidade
-            </h2>
-          </div>
+        <div className="space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Benefícios de participar da comunidade
+          </h2>
           
           <div className="relative">
-            <MethodologySection />
+            <div className="w-36 h-36 rounded-full border-2 border-white/20 flex items-center justify-center relative">
+              <span className="text-lg font-medium">metodologia</span>
+              <div className="absolute w-full h-full">
+                <a href="#metodologia" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
+                  <span className="sr-only">Ver nossa metodologia</span>
+                </a>
+                <div className="absolute -top-10 left-1/2 w-0.5 h-10 bg-white/30"></div>
+              </div>
+            </div>
           </div>
         </div>
 
