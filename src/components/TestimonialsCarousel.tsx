@@ -1,22 +1,32 @@
 
 import React from "react";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 interface TestimonialProps {
   name: string;
   role: string;
   content: string;
+  imageSrc: string;
 }
 
-const Testimonial = ({ name, role, content }: TestimonialProps) => {
+const Testimonial = ({ name, role, content, imageSrc }: TestimonialProps) => {
   return (
     <div className="container-dark p-6 h-full flex flex-col">
       <div className="flex-1">
         <p className="text-white/80 mb-4">{content}</p>
       </div>
       <div className="flex items-center gap-4">
-        <div className="h-12 w-12 rounded-full bg-crimson/30 flex items-center justify-center">
-          <span className="text-sm">{name.charAt(0)}</span>
-        </div>
+        <Avatar className="h-12 w-12 rounded-full border border-crimson/30">
+          <AvatarImage src={imageSrc} alt={name} />
+          <AvatarFallback className="bg-crimson/30">{name.charAt(0)}</AvatarFallback>
+        </Avatar>
         <div>
           <p className="font-semibold">{name}</p>
           <p className="text-sm text-white/60">{role}</p>
@@ -32,21 +42,37 @@ const TestimonialsCarousel = () => {
       name: "Ana Silva",
       role: "Designer UX",
       content: "A comunidade me ajudou a dominar técnicas avançadas que transformaram minha carreira. O suporte personalizado fez toda diferença!",
+      imageSrc: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/QDjAspGKT6diBRNMCH0OfZMzw21IKbUE_ce58c148a95c943afc35e05feb8a7f429d1a0e6ed81f2c769f30349a4b090d81.png"
     },
     {
       name: "Carlos Mendes",
       role: "Desenvolvedor Full Stack",
       content: "Em apenas três meses, consegui triplicar meu salário e encontrar oportunidades que nunca imaginei. A metodologia é incrível!",
+      imageSrc: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/pHhRKG9V1URHmylCuqV6gbBL4kSrA64L_f07111f41e70915ac770fb0b5e721e17a50ebe9657822470d69c381e975be0a4.png"
     },
     {
       name: "Juliana Costa",
       role: "Product Manager",
       content: "As mentorias gravadas são um tesouro de conhecimento que consulto até hoje. Conexões valiosas e aprendizado constante.",
+      imageSrc: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/0fyRSDyVmocmR1vaXrNDwB4m8DYj3C2n_3e05bc8c13fee854838a92d90518030091e718a6f3a7b6f03d6cff2b3efab27c.png"
     },
     {
       name: "Marcos Oliveira",
       role: "Analista de Dados",
       content: "Entrei sem experiência e hoje trabalho com projetos internacionais. As imersões gratuitas foram o ponto de virada na minha trajetória.",
+      imageSrc: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/WVgKV67T8kHUPdnaq8EUVW5q0HQ0ta73_2ad0f2f5782906a2d81f7fb2bb27773019a53af67fcdd4567d3501876317e155.png"
+    },
+    {
+      name: "Fernanda Lima",
+      role: "Marketing Digital",
+      content: "A comunidade oferece recursos práticos que aplicamos imediatamente. Minha produtividade aumentou significativamente nas primeiras semanas.",
+      imageSrc: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/XbWxCbzIFR8KObG5FLLQRc3qi3JYi3mi_231ffba355b32a7e5c3abeb0115acfb045732afec1b4445394a7f5abe2977b5a.png"
+    },
+    {
+      name: "Rafael Santos",
+      role: "Empreendedor Digital",
+      content: "Graças às estratégias que aprendi na comunidade, consegui automatizar processos e escalar meu negócio em tempo recorde.",
+      imageSrc: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/2hJiNsK8fWuLZHibbl6Y1tgqGgosdT4W_e3e87654dff0c8ccae6e28818c87f6b9318aa34ffd78fa73ea602e7935af6e7b.png"
     },
   ];
 
@@ -59,21 +85,38 @@ const TestimonialsCarousel = () => {
         Veja o que nossa comunidade tem falado sobre a experiência de transformação
       </p>
       
-      <div className="flex gap-6 overflow-x-scroll py-4 no-scrollbar">
-        <div className="flex gap-6">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full px-4"
+      >
+        <CarouselContent>
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="min-w-[300px] md:min-w-[320px]">
-              <Testimonial {...testimonial} />
-            </div>
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
+              <div className="bg-dark rounded-lg overflow-hidden aspect-[4/5] flex flex-col">
+                <img 
+                  src={testimonial.imageSrc} 
+                  alt={testimonial.name} 
+                  className="w-full h-[60%] object-cover"
+                />
+                <div className="p-4 flex flex-col h-[40%]">
+                  <p className="text-sm text-white/80 mb-2 line-clamp-3 flex-1">
+                    "{testimonial.content}"
+                  </p>
+                  <div>
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-xs text-crimson">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
           ))}
-        </div>
-      </div>
-      
-      <div className="flex justify-center mt-8">
-        <p className="text-center text-sm text-white/50 uppercase tracking-wider">
-          GIRANDO VÁRIOS DEPOIMENTOS
-        </p>
-      </div>
+        </CarouselContent>
+        <CarouselPrevious className="left-2" />
+        <CarouselNext className="right-2" />
+      </Carousel>
     </section>
   );
 };

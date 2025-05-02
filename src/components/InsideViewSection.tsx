@@ -12,8 +12,8 @@ const InsideViewSection = () => {
         </h2>
       </div>
       
-      <div className="container-dark p-6 max-w-4xl mx-auto">
-        <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-black">
+      <div className="container-dark p-6 max-w-4xl mx-auto aspect-video">
+        <div className="w-full h-full rounded-lg overflow-hidden bg-black">
           <iframe 
             className="w-full h-full"
             src="https://www.youtube.com/embed/zKk3rnqlGLY" 
