@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
@@ -153,7 +154,7 @@ const AgentsSection = () => {
                 <div className="absolute top-6 left-6">
                   <ArrowDown className="w-6 h-6 text-crimson" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-1">[a.gente]{agent.title}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-1">Agente {agent.title}</h3>
               </div>
               <div className="p-6 space-y-4">
                 <p className="text-white/90">{agent.description}</p>
@@ -171,7 +172,7 @@ const AgentsSection = () => {
         
         <div className="text-center mb-20 mt-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">
-            Os [<span className="text-[#ea4b71]">a.gentes</span>] automáticos vendem perfeitamente para...
+            Os Agentes automáticos vendem perfeitamente para...
           </h2>
         </div>
 
