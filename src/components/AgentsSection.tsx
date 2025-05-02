@@ -2,29 +2,34 @@ import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
 interface AgentTargetProps {
   title: string;
   description: string;
   index: number;
 }
+
 const AgentTarget = ({
   title,
   description,
   index
 }: AgentTargetProps) => {
-  // Circular numbers with the site's crimson color
-  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-950">
+  return (
+    <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-900">
       <div className="absolute top-6 right-6">
-        <div className="w-12 h-12 rounded-full bg-[#ea4b71] flex items-center justify-center text-white text-xl font-bold">
+        <div className="w-12 h-12 rounded-full bg-[#ea4b71] flex items-center justify-center text-white text-xl font-bold shadow-lg">
           {index + 1}
         </div>
       </div>
-      <CardContent className="pt-6 pb-6 px-6 bg-zinc-950 refined-dotted-background">
+      <CardContent className="pt-8 pb-8 px-6 refined-dotted-background h-full">
         <h3 className="text-xl font-bold mb-3 text-zinc-50">{title}</h3>
         <p className="text-zinc-300">{description}</p>
       </CardContent>
-    </Card>;
+    </Card>
+  );
 };
+
 const AgentsSection = () => {
   const agents = [
     {
@@ -109,6 +114,7 @@ const AgentsSection = () => {
       }]
     }
   ];
+
   const agentTargets = [
     {
       title: "Infoprodutores",
@@ -124,6 +130,7 @@ const AgentsSection = () => {
       description: "Seja para consultorias, profissionais liberais ou qualquer serviço, os agentes de I.A. filtram interessados, automatizam atendimentos e preenchem sua agenda sem você precisar levantar um dedo."
     }
   ];
+
   return <div className="bg-black">
       <section className="section-padding section-container relative overflow-hidden">
         <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
@@ -140,22 +147,26 @@ const AgentsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-          {agents.map((agent, index) => <div key={index} className="bg-black overflow-hidden relative group transition-all duration-300">
-              <div className="text-white p-6 relative refined-dotted-background bg-zinc-950">
+          {agents.map((agent, index) => (
+            <div key={index} className="bg-zinc-900 overflow-hidden relative group transition-all duration-300 border border-white/5 rounded-lg refined-dotted-background shadow-lg hover:shadow-crimson/10 hover:border-white/10">
+              <div className="text-white p-6 relative">
                 <div className="absolute top-6 left-6">
-                  <ArrowDown className="w-6 h-6 text-white" />
+                  <ArrowDown className="w-6 h-6 text-crimson" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-1">[a.gente]{agent.title}</h3>
               </div>
               <div className="p-6 space-y-4">
                 <p className="text-white/90">{agent.description}</p>
                 <div className="flex flex-wrap gap-2 mt-4">
-                  {agent.badges.map((badge, index) => <Badge key={index} className="text-black py-1.5 px-3 bg-[#ea4b71]">
+                  {agent.badges.map((badge, index) => (
+                    <Badge key={index} className="text-black py-1.5 px-3 bg-[#ea4b71] font-medium">
                       {badge.text}
-                    </Badge>)}
+                    </Badge>
+                  ))}
                 </div>
               </div>
-            </div>)}
+            </div>
+          ))}
         </div>
         
         <div className="text-center mb-20 mt-16">
@@ -165,9 +176,18 @@ const AgentsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {agentTargets.map((target, index) => <AgentTarget key={index} title={target.title} description={target.description} index={index} />)}
+          {agentTargets.map((target, index) => (
+            <AgentTarget key={index} title={target.title} description={target.description} index={index} />
+          ))}
+        </div>
+
+        <div className="text-center mt-16">
+          <Button variant="default" size="lg" className="px-8 py-6 text-lg font-medium">
+            Quero automatizar minha empresa
+          </Button>
         </div>
       </section>
     </div>;
 };
+
 export default AgentsSection;
