@@ -190,7 +190,7 @@ const AgentsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Os Agentes automáticos vendem perfeitamente para...</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {agentTargets.map((target, index) => <AgentTarget key={index} title={target.title} description={target.description} index={index} imageUrl={target.imageUrl} />)}
         </div>
 
