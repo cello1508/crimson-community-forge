@@ -50,13 +50,11 @@ const BenefitsSection = () => {
             Benefícios de participar da comunidade
           </h2>
           
-          <div className="relative">
+          <div className="flex justify-center items-center py-8">
             <div className="w-36 h-36 rounded-full border-2 border-white/20 flex items-center justify-center relative">
               <span className="text-lg font-medium">metodologia</span>
-              <div className="absolute w-full h-full">
-                
-                <div className="absolute -top-10 left-1/2 w-0.5 h-10 bg-white/30"></div>
-                
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-0.5 h-10 bg-white/30"></div>
               </div>
             </div>
           </div>
