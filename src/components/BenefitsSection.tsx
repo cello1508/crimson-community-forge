@@ -46,13 +46,16 @@ const BenefitsSection = () => {
             Benefícios de participar da comunidade
           </h2>
           
-          <div className="relative">
-            <div className="w-36 h-36 rounded-full border-2 border-white/20 flex items-center justify-center relative">
-              <span className="text-lg font-medium">metodologia</span>
+          <div className="relative flex items-center justify-center">
+            <div className="w-40 h-40 rounded-full border-2 border-crimson/30 flex items-center justify-center relative animate-pulse">
+              <div className="w-32 h-32 rounded-full border-2 border-white/20 bg-dark flex items-center justify-center">
+                <span className="text-xl font-medium text-crimson">metodologia</span>
+              </div>
               <div className="absolute w-full h-full">
-                <div className="absolute top-1/2 -right-10 w-20 h-0.5 bg-white/30 transform -rotate-45"></div>
-                <div className="absolute -top-10 left-1/2 w-0.5 h-10 bg-white/30"></div>
-                <div className="absolute top-1/2 -left-10 w-10 h-0.5 bg-white/30 transform rotate-45"></div>
+                <div className="absolute top-1/2 -right-12 w-20 h-0.5 bg-crimson/30 transform -rotate-45"></div>
+                <div className="absolute -top-12 left-1/2 w-0.5 h-12 bg-crimson/30"></div>
+                <div className="absolute top-1/2 -left-12 w-20 h-0.5 bg-crimson/30 transform rotate-45"></div>
+                <div className="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-crimson/30"></div>
               </div>
             </div>
           </div>
