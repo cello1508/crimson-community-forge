@@ -2,7 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Gift } from "lucide-react";
+import { Check, Gift, DollarSign } from "lucide-react";
 
 interface PricingCardProps {
   title: string;
@@ -18,6 +18,7 @@ interface PricingCardProps {
     description: string;
   }[];
   priorityNote?: string;
+  dailyPrice?: string;
 }
 
 const PricingCard = ({
@@ -30,7 +31,8 @@ const PricingCard = ({
   originalPrice,
   discountText,
   bonuses,
-  priorityNote
+  priorityNote,
+  dailyPrice
 }: PricingCardProps) => {
   return <Card className={`border-zinc-800 bg-black h-full flex flex-col ${highlight ? 'border-2 border-crimson/70' : ''}`}>
       <CardContent className="p-8 flex flex-col h-full">
@@ -48,6 +50,12 @@ const PricingCard = ({
             <div className="flex items-center justify-center">
               <span className="text-4xl font-bold">R$ {price}</span>
             </div>
+            {dailyPrice && (
+              <div className="mt-2 flex items-center gap-1.5 bg-purple-900/30 px-3 py-1 rounded-full">
+                <DollarSign size={14} className="text-purple-300" />
+                <span className="text-sm text-purple-200">{dailyPrice}</span>
+              </div>
+            )}
           </div>
         </div>
         
@@ -104,6 +112,7 @@ const PricingSection = () => {
     discountText: "46% OFF",
     highlight: true,
     priorityNote: "Prioridade a pegar implementações da nossa Agencia de IA",
+    dailyPrice: "Menos de R$2,19 por dia!",
     features: ["1 Ano de acesso a comunidade", "Garantia de 7 dias", "Todos os conteúdos gravados", "Grupo de networking no WhatsApp", "Acesso as Calls de Suporte semanais", "Imersões de Micro saas", "Acesso prioritário a templates", "Acesso as atualizações semanais da comunidade"],
     bonuses: [{
       title: "Bonus ao arsenal de vendas",
@@ -122,7 +131,7 @@ const PricingSection = () => {
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {plans.map((plan, index) => <PricingCard key={index} title={plan.title} subtitle={plan.subtitle} price={plan.price} features={plan.features} highlight={plan.highlight} originalPrice={plan.originalPrice} discountText={plan.discountText} bonuses={plan.bonuses} priorityNote={plan.priorityNote} />)}
+        {plans.map((plan, index) => <PricingCard key={index} title={plan.title} subtitle={plan.subtitle} price={plan.price} features={plan.features} highlight={plan.highlight} originalPrice={plan.originalPrice} discountText={plan.discountText} bonuses={plan.bonuses} priorityNote={plan.priorityNote} dailyPrice={plan.dailyPrice} />)}
       </div>
     </section>;
 };
