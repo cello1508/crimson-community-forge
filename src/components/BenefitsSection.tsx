@@ -53,12 +53,12 @@ const BenefitsSection = () => {
   return (
     <section className="section-padding section-container min-h-[600px] flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
-        <div className="lg:col-span-5 space-y-6 flex flex-col justify-center">
-          <h2 className="text-3xl md:text-4xl font-bold">
+        <div className="lg:col-span-5 space-y-6 flex flex-col">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">
             Benefícios de participar da comunidade
           </h2>
           
-          <div className="flex justify-center py-12">
+          <div className="flex justify-center py-8">
             <div className="w-64 h-64 rounded-full border-2 border-white/20 flex items-center justify-center relative">
               <span className="text-2xl font-medium">metodologia</span>
             </div>
