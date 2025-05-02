@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -91,7 +92,11 @@ const PricingSection = () => {
   }, {
     title: "Trimestral",
     price: "297,00",
-    features: ["3 meses de acesso a comunidade", "Garantia de 7 dias", "Todos os conteúdos gravados", "Grupo de networking no WhatsApp", "Acesso as Calls de Suporte semanais", "Acesso as atualizações semanais da comunidade"]
+    features: ["3 meses de acesso a comunidade", "Garantia de 7 dias", "Todos os conteúdos gravados", "Grupo de networking no WhatsApp", "Acesso as Calls de Suporte semanais", "Acesso as atualizações semanais da comunidade"],
+    bonuses: [{
+      title: "Agente Gerador de Prompt",
+      description: "Nosso Agente GPT que melhora e organiza nossos prompts para desenvolver IAs para clientes em 76% mais assertivo"
+    }]
   }, {
     title: "Anual - Mais indicado",
     price: "797,00",
@@ -106,6 +111,9 @@ const PricingSection = () => {
     }, {
       title: "1 hora de mentoria exclusiva",
       description: "Geralmente uma Call com o TIME da MGTInc gira em torno de R$350 a hora, vamos te dar uma consultoria gratuita, ao entrar no anual"
+    }, {
+      title: "Agente Gerador de Prompt",
+      description: "Nosso Agente GPT que melhora e organiza nossos prompts para desenvolver IAs para clientes em 76% mais assertivo"
     }]
   }];
   return <section className="section-padding bg-black section-container">
