@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -12,7 +13,8 @@ const BenefitCard = ({
   description,
   emoji
 }: BenefitCardProps) => {
-  return <Card className="bg-dark border border-white/10 hover:border-crimson/50 transition-all duration-300">
+  return (
+    <Card className="bg-dark border border-white/10 hover:border-crimson/50 transition-all duration-300">
       <CardContent className="p-6">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-2xl" role="img" aria-label="benefit icon">{emoji}</span>
@@ -20,7 +22,8 @@ const BenefitCard = ({
         </div>
         <p className="text-white/70">{description}</p>
       </CardContent>
-    </Card>;
+    </Card>
+  );
 };
 
 const BenefitsSection = () => {
@@ -47,28 +50,29 @@ const BenefitsSection = () => {
     }
   ];
 
-  return <section className="section-padding section-container min-h-[600px] flex items-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-6 flex flex-col justify-center items-center">
+  return (
+    <section className="section-padding section-container min-h-[600px] flex items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
+        <div className="lg:col-span-5 space-y-6 flex flex-col justify-center">
           <h2 className="text-3xl md:text-4xl font-bold">
             Benefícios de participar da comunidade
           </h2>
           
-          <div className="flex justify-center items-center py-12">
-            <div className="w-48 h-48 rounded-full border-2 border-white/20 flex items-center justify-center relative">
-              <span className="text-xl font-medium">metodologia</span>
-              <div className="absolute inset-0 flex items-center justify-center">
-                
-              </div>
+          <div className="flex justify-center py-12">
+            <div className="w-64 h-64 rounded-full border-2 border-white/20 flex items-center justify-center relative">
+              <span className="text-2xl font-medium">metodologia</span>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4">
-          {benefits.map((benefit, index) => <BenefitCard key={index} {...benefit} />)}
+        <div className="lg:col-span-7 space-y-4">
+          {benefits.map((benefit, index) => (
+            <BenefitCard key={index} {...benefit} />
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default BenefitsSection;
