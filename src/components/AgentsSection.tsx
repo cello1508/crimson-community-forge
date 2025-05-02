@@ -1,7 +1,51 @@
 
 import React from "react";
-import AgentTarget from "./agents/AgentTarget";
-import AgentCard from "./agents/AgentCard";
+import { Badge } from "@/components/ui/badge";
+import { ArrowDown } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { useIsMobile } from "@/hooks/use-mobile";
+
+interface AgentTargetProps {
+  title: string;
+  description: string;
+  index: number;
+  imageUrl: string;
+}
+const AgentTarget = ({
+  title,
+  description,
+  index,
+  imageUrl
+}: AgentTargetProps) => {
+  const isMobile = useIsMobile();
+  
+  return <div className="flex flex-col h-full border border-zinc-800 hover:border-crimson/30 rounded-lg overflow-hidden transition-all duration-300 bg-black">
+      {/* Top image section */}
+      <div className={`relative ${isMobile ? 'h-[500px]' : 'h-72'} bg-black`}>
+        <img src={imageUrl} alt={title} className="w-full h-full object-cover object-center opacity-90" />
+        
+        {/* Title overlay at top */}
+        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent p-4">
+          
+        </div>
+        
+        {/* Number badge */}
+        <div className="absolute bottom-4 left-4">
+          <div className="flex items-center justify-center w-8 h-8 bg-crimson rounded-full text-white font-bold text-sm">
+            {index + 1}
+          </div>
+        </div>
+      </div>
+      
+      {/* Bottom text section */}
+      <div className="flex-1 p-6 bg-black border-t border-zinc-800">
+        <p className="text-white/80">{description}</p>
+      </div>
+    </div>;
+};
+
 const AgentsSection = () => {
   const agents = [{
     title: "QUALIFICADOR DE LEADS",
@@ -125,14 +169,29 @@ const AgentsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-          {agents.map((agent, index) => <AgentCard key={index} title={agent.title} description={agent.description} badges={agent.badges} />)}
+          {agents.map((agent, index) => <div key={index} className="bg-zinc-900 overflow-hidden relative group transition-all duration-300 border border-white/5 rounded-lg refined-dotted-background shadow-lg hover:shadow-crimson/10 hover:border-white/10">
+              <div className="text-white p-6 relative">
+                <div className="absolute top-6 left-6">
+                  <ArrowDown className="w-6 h-6 text-crimson" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-1">Agente {agent.title}</h3>
+              </div>
+              <div className="p-6 space-y-4">
+                <p className="text-white/90">{agent.description}</p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {agent.badges.map((badge, index) => <Badge key={index} className="text-black py-1.5 px-3 bg-[#ea4b71] font-medium">
+                      {badge.text}
+                    </Badge>)}
+                </div>
+              </div>
+            </div>)}
         </div>
         
         <div className="text-center mb-20 mt-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Automações e Agentes de IA são para mim?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Os Agentes automáticos vendem perfeitamente para...</h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {agentTargets.map((target, index) => <AgentTarget key={index} title={target.title} description={target.description} index={index} imageUrl={target.imageUrl} />)}
         </div>
 
@@ -143,3 +202,4 @@ const AgentsSection = () => {
     </div>;
 };
 export default AgentsSection;
+
