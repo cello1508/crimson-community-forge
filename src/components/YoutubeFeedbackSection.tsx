@@ -60,15 +60,17 @@ interface MentorCardProps {
 
 const MentorCard = ({ name, role, bio, achievements, imageSrc }: MentorCardProps) => {
   return (
-    <div className="bg-[#121212] rounded-lg overflow-hidden">
+    <div className="bg-dark rounded-lg overflow-hidden border border-white/10 hover:border-crimson/30 transition-all duration-300">
       <div className="relative">
-        <img 
-          src={imageSrc} 
-          alt={name}
-          className="w-full h-64 object-cover object-center"
-        />
+        <div className="h-80 overflow-hidden">
+          <img 
+            src={imageSrc} 
+            alt={name}
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
-          <h3 className="text-2xl font-bold text-[#c4f135]">{name}</h3>
+          <h3 className="text-2xl font-bold text-crimson">{name}</h3>
           <p className="text-white">{role}</p>
         </div>
       </div>
@@ -79,7 +81,7 @@ const MentorCard = ({ name, role, bio, achievements, imageSrc }: MentorCardProps
         <div className="space-y-2">
           {achievements.map((achievement, index) => (
             <div key={index} className="flex items-start gap-2">
-              <span className="text-[#c4f135] mt-1">✓</span>
+              <span className="text-crimson mt-1">✓</span>
               <p className="text-white/90">{achievement}</p>
             </div>
           ))}
