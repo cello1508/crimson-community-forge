@@ -20,27 +20,31 @@ const AgentTarget = ({
   imageUrl
 }: AgentTargetProps) => {
   return (
-    <div className="bg-dark rounded-lg overflow-hidden border border-white/10 hover:border-crimson/30 transition-all duration-300">
-      <div className="relative">
-        <div className="h-80 overflow-hidden">
-          <img 
-            src={imageUrl} 
-            alt={title}
-            className="w-full h-full object-cover object-center"
-          />
+    <div className="flex flex-col h-full border border-zinc-800 hover:border-crimson/30 rounded-lg overflow-hidden transition-all duration-300 bg-black">
+      {/* Top image section */}
+      <div className="relative h-72 bg-black">
+        <img 
+          src={imageUrl} 
+          alt={title}
+          className="w-full h-full object-cover object-center opacity-90"
+        />
+        
+        {/* Title overlay at top */}
+        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent p-4">
+          <h3 className="text-2xl font-bold text-white uppercase border-l-4 border-crimson pl-2">{title}</h3>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-crimson flex items-center justify-center text-white font-bold shadow-lg">
-              {index + 1}
-            </div>
-            <h3 className="text-2xl font-bold text-crimson">{title}</h3>
+        
+        {/* Number badge */}
+        <div className="absolute bottom-4 left-4">
+          <div className="flex items-center justify-center w-8 h-8 bg-crimson rounded-full text-white font-bold text-sm">
+            {index + 1}
           </div>
         </div>
       </div>
       
-      <div className="p-6">
-        <p className="text-white/80 mb-4">{description}</p>
+      {/* Bottom text section */}
+      <div className="flex-1 p-6 bg-black border-t border-zinc-800">
+        <p className="text-white/80">{description}</p>
       </div>
     </div>
   );
@@ -164,16 +168,6 @@ const AgentsSection = () => {
     }
   ];
   
-  // Reorder the targets to ensure proper positioning with "Sair da CLT" in the middle
-  const reorderedTargets = [
-    agentTargets[0], // Infoprodutores
-    agentTargets[1], // Negócios Locais
-    agentTargets[2], // Sair da CLT (middle position)
-    agentTargets[3], // Agências
-    agentTargets[4], // Prestadores de Serviço
-    agentTargets[5]  // Começar no digital
-  ];
-  
   return <div className="bg-black">
       <section className="section-padding section-container relative overflow-hidden">
         <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
@@ -212,8 +206,8 @@ const AgentsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Os Agentes automáticos vendem perfeitamente para...</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-8">
-          {reorderedTargets.map((target, index) => 
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {agentTargets.map((target, index) => 
             <AgentTarget 
               key={index} 
               title={target.title} 
