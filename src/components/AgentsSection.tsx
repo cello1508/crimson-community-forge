@@ -140,24 +140,7 @@ const AgentsSection = () => {
           <ArrowDown className="w-20 h-20 text-[#d2ff00]" />
         </div>
         
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">
-            Os [<span className="text-[#d2ff00]">a.gentes</span>] automáticos vendem perfeitamente para...
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {agentTargets.map((target, index) => (
-            <AgentTarget 
-              key={index} 
-              title={target.title} 
-              description={target.description}
-              index={index}
-            />
-          ))}
-        </div>
-
-        <div className="text-center mt-24 mb-12">
+        <div className="text-center mb-12">
           <h3 className="text-2xl md:text-3xl font-bold">
             Agentes de IA que você vai dominar
           </h3>
@@ -166,7 +149,7 @@ const AgentsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
           {agents.map((agent, index) => (
             <div key={index} className="bg-black overflow-hidden relative group transition-all duration-300">
               <div className="text-white p-6 relative dotted-background bg-zinc-950">
@@ -186,6 +169,23 @@ const AgentsSection = () => {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+        
+        <div className="text-center mb-20 mt-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">
+            Os [<span className="text-[#d2ff00]">a.gentes</span>] automáticos vendem perfeitamente para...
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {agentTargets.map((target, index) => (
+            <AgentTarget 
+              key={index} 
+              title={target.title} 
+              description={target.description}
+              index={index}
+            />
           ))}
         </div>
       </section>
