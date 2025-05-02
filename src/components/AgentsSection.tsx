@@ -15,13 +15,20 @@ const AgentTarget = ({
   description,
   index
 }: AgentTargetProps) => {
-  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-900">
-      <div className="absolute top-12 right-6">
+  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-900 h-64">
+      <div className="absolute top-16 right-6">
         <div className="w-12 h-12 rounded-full bg-[#ea4b71] flex items-center justify-center text-white text-xl font-bold shadow-lg">
           {index + 1}
         </div>
       </div>
-      <CardContent className="pt-8 pb-8 px-6 refined-dotted-background h-full">
+      <CardContent className="pt-8 pb-8 px-6 refined-dotted-background h-full relative">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="grid grid-cols-4 h-full w-full">
+            {Array(16).fill(0).map((_, i) => (
+              <div key={i} className="border border-white/5"></div>
+            ))}
+          </div>
+        </div>
         <h3 className="text-xl font-bold mb-3 text-zinc-50">{title}</h3>
         <p className="text-zinc-300">{description}</p>
       </CardContent>
@@ -132,6 +139,15 @@ const AgentsSection = () => {
     }
   ];
   
+  // Ensure the "sair da CLT" card is in the middle position
+  const reorderedTargets = [
+    agentTargets[0],
+    agentTargets[1], 
+    agentTargets[2], // CLT in middle position
+    agentTargets[3], 
+    agentTargets[4]
+  ];
+  
   return <div className="bg-black">
       <section className="section-padding section-container relative overflow-hidden">
         <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
@@ -170,8 +186,8 @@ const AgentsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Os Agentes automáticos vendem perfeitamente para...</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {agentTargets.map((target, index) => <AgentTarget key={index} title={target.title} description={target.description} index={index} />)}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {reorderedTargets.map((target, index) => <AgentTarget key={index} title={target.title} description={target.description} index={index} />)}
         </div>
 
         <div className="text-center mt-16">
