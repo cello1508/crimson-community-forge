@@ -12,9 +12,9 @@ interface AgentCardProps {
 const AgentCard = ({ title, description, badges }: AgentCardProps) => {
   return (
     <div className="bg-black overflow-hidden relative group transition-all duration-300">
-      <div className="bg-[#d3fa46] text-black p-6 relative">
+      <div className="bg-crimson text-white p-6 relative">
         <div className="absolute top-6 left-6">
-          <ArrowDown className="w-6 h-6 text-black" />
+          <ArrowDown className="w-6 h-6 text-white" />
         </div>
         <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-1">[a.gente]{title}</h3>
       </div>
