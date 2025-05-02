@@ -1,36 +1,58 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
-interface AgentCardProps {
+import { Card, CardContent } from "@/components/ui/card";
+
+interface AgentTargetProps {
   title: string;
   description: string;
-  badges: {
-    text: string;
-  }[];
+  index: number;
 }
-const AgentCard = ({
-  title,
-  description,
-  badges
-}: AgentCardProps) => {
-  return <div className="bg-black overflow-hidden relative group transition-all duration-300">
-      <div className="text-white p-6 relative dotted-background bg-zinc-950">
-        <div className="absolute top-6 left-6">
-          <ArrowDown className="w-6 h-6 text-white" />
-        </div>
-        <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-1">[a.gente]{title}</h3>
-      </div>
-      <div className="p-6 space-y-4">
-        <p className="text-white/90">{description}</p>
-        <div className="flex flex-wrap gap-2 mt-4">
-          {badges.map((badge, index) => <Badge key={index} className="bg-white text-black hover:bg-white/90 py-1.5 px-3">
-              {badge.text}
-            </Badge>)}
+
+const AgentTarget = ({ title, description, index }: AgentTargetProps) => {
+  // Alternating background colors for visual interest
+  const bgColors = [
+    "bg-gradient-to-br from-crimson/90 to-crimson/70",
+    "bg-gradient-to-br from-crimson/80 to-crimson/60",
+    "bg-gradient-to-br from-crimson/70 to-crimson/50", 
+    "bg-gradient-to-br from-crimson/90 to-crimson/70"
+  ];
+  
+  return (
+    <Card className="bg-white overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none">
+      <div className="w-16 h-16 rounded-full bg-white absolute -top-8 left-1/2 transform -translate-x-1/2 flex items-center justify-center overflow-hidden border-4 border-white shadow-md">
+        <div className={`w-full h-full ${bgColors[index % bgColors.length]} flex items-center justify-center text-white text-2xl font-bold`}>
+          {index + 1}
         </div>
       </div>
-    </div>;
+      <CardContent className="pt-12 pb-6 px-6">
+        <h3 className="text-xl font-bold text-center mb-3 text-black">{title}</h3>
+        <p className="text-gray-700 text-center">{description}</p>
+      </CardContent>
+    </Card>
+  );
 };
+
 const AgentsSection = () => {
+  const agentTargets = [
+    {
+      title: "Infoprodutores",
+      description: "Se você vende cursos, mentorias ou produtos digitais, seus agentes de I.A. automatizam o contato com leads, qualificam compradores e aumentam suas conversões."
+    },
+    {
+      title: "Negócios Locais",
+      description: "Atraia e converta clientes para seu restaurante, clínica, lojas, e-commerce, academia ou qualquer negócio local sem depender de atendentes."
+    },
+    {
+      title: "Agências",
+      description: "Sua agência pode parar de perder tempo com leads frios. Os agentes de I.A. captam, qualificam e segmentam clientes automaticamente, permitindo que sua equipe foque no que realmente importa."
+    },
+    {
+      title: "Prestadores de Serviço",
+      description: "Seja para consultorias, profissionais liberais ou qualquer serviço, os agentes de I.A. filtram interessados, automatizam atendimentos e preenchem sua agenda sem você precisar levantar um dedo."
+    }
+  ];
+
   const agents = [{
     title: "QUALIFICADOR DE LEADS",
     description: "Seu Qualificador de Leads de I.A. identifica e separa as melhores oportunidades dentro do CRM, garantindo que sua equipe de vendas foque apenas em clientes prontos para comprar.",
@@ -112,19 +134,65 @@ const AgentsSection = () => {
       text: "Automático"
     }]
   }];
-  return <section className="section-padding bg-black section-container">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Agentes de IA que você vai dominar
-        </h2>
-        <p className="text-xl text-crimson">
-          Automatize sua operação de vendas com nossos agentes personalizados
-        </p>
-      </div>
+  
+  return (
+    <div className="bg-black">
+      <section className="section-padding section-container relative overflow-hidden">
+        <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
+          <ArrowDown className="w-20 h-20 text-[#d2ff00]" />
+        </div>
+        
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">
+            Os [<span className="text-[#d2ff00]">a.gentes</span>] automáticos vendem perfeitamente para...
+          </h2>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {agents.map((agent, index) => <AgentCard key={index} title={agent.title} description={agent.description} badges={agent.badges} />)}
-      </div>
-    </section>;
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {agentTargets.map((target, index) => (
+            <AgentTarget 
+              key={index} 
+              title={target.title} 
+              description={target.description}
+              index={index}
+            />
+          ))}
+        </div>
+
+        <div className="text-center mt-24 mb-12">
+          <h3 className="text-2xl md:text-3xl font-bold">
+            Agentes de IA que você vai dominar
+          </h3>
+          <p className="text-xl text-crimson mt-2">
+            Automatize sua operação de vendas com nossos agentes personalizados
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {agents.map((agent, index) => (
+            <div key={index} className="bg-black overflow-hidden relative group transition-all duration-300">
+              <div className="text-white p-6 relative dotted-background bg-zinc-950">
+                <div className="absolute top-6 left-6">
+                  <ArrowDown className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold mt-10 mb-1">[a.gente]{agent.title}</h3>
+              </div>
+              <div className="p-6 space-y-4">
+                <p className="text-white/90">{agent.description}</p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {agent.badges.map((badge, index) => (
+                    <Badge key={index} className="bg-white text-black hover:bg-white/90 py-1.5 px-3">
+                      {badge.text}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 };
+
 export default AgentsSection;
