@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, Gift } from "lucide-react";
+
 interface PricingCardProps {
   title: string;
   price: string;
@@ -17,6 +18,7 @@ interface PricingCardProps {
   }[];
   priorityNote?: string;
 }
+
 const PricingCard = ({
   title,
   subtitle,
@@ -79,6 +81,7 @@ const PricingCard = ({
       </CardContent>
     </Card>;
 };
+
 const PricingSection = () => {
   const plans = [{
     title: "7 dias",
@@ -92,7 +95,7 @@ const PricingSection = () => {
   }, {
     title: "Anual - Mais indicado",
     price: "797,00",
-    originalPrice: "1.180",
+    originalPrice: "1.475",
     discountText: "46% OFF",
     highlight: true,
     priorityNote: "Prioridade a pegar implementações da nossa Agencia de IA",
@@ -115,4 +118,5 @@ const PricingSection = () => {
       </div>
     </section>;
 };
+
 export default PricingSection;
