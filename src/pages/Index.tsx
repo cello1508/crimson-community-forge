@@ -19,11 +19,11 @@ const Index = () => {
       <HeroSection />
       <TestimonialsCarousel />
       <BenefitsSection />
+      <YoutubeFeedbackSection />
       <DifferentialsSection />
       <AgentsSection />
       <InsideViewSection />
       <ContentSection />
-      <YoutubeFeedbackSection />
       <MentorsSection />
       <PricingSection />
       <FaqSection />
