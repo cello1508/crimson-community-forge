@@ -1,13 +1,10 @@
-
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-
 interface BenefitCardProps {
   title: string;
   description: string;
   emoji: string;
 }
-
 const BenefitCard = ({
   title,
   description,
@@ -23,7 +20,6 @@ const BenefitCard = ({
       </CardContent>
     </Card>;
 };
-
 const BenefitsSection = () => {
   const benefits = [{
     title: "Call de suporte toda Quarta feira",
@@ -42,7 +38,6 @@ const BenefitsSection = () => {
     description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
     emoji: "🚀"
   }];
-
   return <section className="section-padding section-container">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
@@ -54,7 +49,7 @@ const BenefitsSection = () => {
             <div className="w-36 h-36 rounded-full border-2 border-white/20 flex items-center justify-center relative">
               <span className="text-lg font-medium">metodologia</span>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-0.5 h-10 bg-white/30"></div>
+                
               </div>
             </div>
           </div>
@@ -66,5 +61,4 @@ const BenefitsSection = () => {
       </div>
     </section>;
 };
-
 export default BenefitsSection;
