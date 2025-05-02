@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
@@ -23,7 +22,7 @@ const AgentTarget = ({
   
   return <div className="flex flex-col h-full border border-zinc-800 hover:border-crimson/30 rounded-lg overflow-hidden transition-all duration-300 bg-black">
       {/* Top image section */}
-      <div className={`relative ${isMobile ? 'h-[500px]' : 'h-72'} bg-black`}>
+      <div className={`relative ${isMobile ? 'h-[600px]' : 'h-96'} bg-black`}>
         <img src={imageUrl} alt={title} className="w-full h-full object-cover object-center opacity-90" />
         
         {/* Title overlay at top */}
@@ -202,4 +201,3 @@ const AgentsSection = () => {
     </div>;
 };
 export default AgentsSection;
-
