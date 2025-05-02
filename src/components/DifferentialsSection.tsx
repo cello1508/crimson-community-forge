@@ -1,17 +1,14 @@
-
 import React from "react";
 import { X } from "lucide-react";
-
 const DifferentialsSection = () => {
-  return (
-    <section className="section-padding bg-black section-container">
+  return <section className="section-padding bg-black section-container">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         Diferenciais
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-center">
         <div className="col-span-1 md:col-span-2 container-dark p-6 h-full min-h-[300px]">
-          <h3 className="text-xl font-semibold mb-4">Checklist</h3>
+          <h3 className="text-xl font-semibold mb-4">Comunidade | Checklist</h3>
           <ul className="space-y-3">
             <li className="flex items-center gap-2">
               <div className="h-5 w-5 rounded-full bg-crimson flex items-center justify-center">
@@ -111,8 +108,6 @@ const DifferentialsSection = () => {
           </ul>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DifferentialsSection;
