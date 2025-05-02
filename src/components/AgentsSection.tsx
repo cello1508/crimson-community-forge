@@ -14,7 +14,7 @@ const AgentTarget = ({
 }: AgentTargetProps) => {
   // Circular numbers with neon colors
   const bgColors = ["bg-[#ea4b71]", "bg-[#ea4b71]", "bg-[#ea4b71]", "bg-[#ea4b71]"];
-  return <Card className="bg-white overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none">
+  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-slate-50">
       <div className="w-16 h-16 rounded-full bg-white absolute -top-8 left-1/2 transform -translate-x-1/2 flex items-center justify-center overflow-hidden border-4 border-white shadow-md">
         <div className={`w-full h-full ${bgColors[index % bgColors.length]} flex items-center justify-center text-white text-2xl font-bold`}>
           {index + 1}
