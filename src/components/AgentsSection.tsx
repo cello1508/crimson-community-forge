@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
@@ -18,29 +19,31 @@ const AgentTarget = ({
   index,
   imageUrl
 }: AgentTargetProps) => {
-  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-900 h-80">
-      <div className="absolute top-16 right-6">
-        <div className="w-12 h-12 rounded-full bg-[#ea4b71] flex items-center justify-center text-white text-xl font-bold shadow-lg">
-          {index + 1}
+  return (
+    <div className="bg-dark rounded-lg overflow-hidden border border-white/10 hover:border-crimson/30 transition-all duration-300">
+      <div className="relative">
+        <div className="h-80 overflow-hidden">
+          <img 
+            src={imageUrl} 
+            alt={title}
+            className="w-full h-full object-cover object-center"
+          />
         </div>
-      </div>
-      <CardContent className="pt-8 pb-8 px-6 refined-dotted-background h-full relative">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="grid grid-cols-4 h-full w-full">
-            {Array(16).fill(0).map((_, i) => (
-              <div key={i} className="border border-white/5"></div>
-            ))}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-full bg-crimson flex items-center justify-center text-white font-bold shadow-lg">
+              {index + 1}
+            </div>
+            <h3 className="text-2xl font-bold text-crimson">{title}</h3>
           </div>
         </div>
-        
-        <Avatar className="h-20 w-20 mb-4">
-          <AvatarImage src={imageUrl} alt={title} />
-        </Avatar>
-        
-        <h3 className="text-2xl font-bold mb-3 text-zinc-50">{title}</h3>
-        <p className="text-zinc-300 text-lg">{description}</p>
-      </CardContent>
-    </Card>;
+      </div>
+      
+      <div className="p-6">
+        <p className="text-white/80 mb-4">{description}</p>
+      </div>
+    </div>
+  );
 };
 
 const AgentsSection = () => {
