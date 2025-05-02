@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
@@ -19,7 +18,7 @@ const AgentTarget = ({
   index,
   imageUrl
 }: AgentTargetProps) => {
-  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-900 h-64">
+  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-900 h-80">
       <div className="absolute top-16 right-6">
         <div className="w-12 h-12 rounded-full bg-[#ea4b71] flex items-center justify-center text-white text-xl font-bold shadow-lg">
           {index + 1}
@@ -34,12 +33,12 @@ const AgentTarget = ({
           </div>
         </div>
         
-        <Avatar className="h-16 w-16 mb-4">
+        <Avatar className="h-20 w-20 mb-4">
           <AvatarImage src={imageUrl} alt={title} />
         </Avatar>
         
-        <h3 className="text-xl font-bold mb-3 text-zinc-50">{title}</h3>
-        <p className="text-zinc-300">{description}</p>
+        <h3 className="text-2xl font-bold mb-3 text-zinc-50">{title}</h3>
+        <p className="text-zinc-300 text-lg">{description}</p>
       </CardContent>
     </Card>;
 };
@@ -210,7 +209,7 @@ const AgentsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Os Agentes automáticos vendem perfeitamente para...</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-8">
           {reorderedTargets.map((target, index) => 
             <AgentTarget 
               key={index} 
