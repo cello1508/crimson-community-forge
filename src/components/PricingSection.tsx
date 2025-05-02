@@ -1,61 +1,99 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Check, Gift } from "lucide-react";
 
 interface PricingCardProps {
   title: string;
   price: string;
-  description?: string;
-  features?: string[];
-  popularLabel?: boolean;
+  subtitle?: string;
+  features: string[];
+  highlight?: boolean;
   ctaText?: string;
+  originalPrice?: string;
+  discountText?: string;
+  bonuses?: {
+    title: string;
+    description: string;
+  }[];
+  priorityNote?: string;
 }
 
 const PricingCard = ({
   title,
+  subtitle,
   price,
-  description,
   features,
-  popularLabel = false,
-  ctaText = "Começar agora"
+  highlight = false,
+  ctaText = "Começar agora",
+  originalPrice,
+  discountText,
+  bonuses,
+  priorityNote
 }: PricingCardProps) => {
   return (
-    <div className={`container-dark p-6 rounded-lg relative ${popularLabel ? 'border-2 border-crimson' : 'border border-white/10'}`}>
-      {popularLabel && (
-        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-crimson text-white text-sm font-semibold py-1 px-4 rounded-full">
-          Mais popular
-        </div>
-      )}
-      
-      <div className="text-center mb-6">
-        <h3 className="text-xl font-bold mb-4">{title}</h3>
-        <div className="mb-2">
-          <span className="text-3xl font-bold">R$ {price}</span>
-        </div>
-        {description && (
-          <p className="text-white/60 text-sm">{description}</p>
-        )}
-      </div>
-      
-      {features && features.length > 0 && (
-        <ul className="space-y-2 mb-6">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <div className="h-5 w-5 rounded-full bg-crimson/20 flex items-center justify-center mr-2 mt-0.5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-crimson">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+    <Card className={`border-zinc-800 bg-black h-full flex flex-col ${highlight ? 'border-2 border-crimson/70' : ''}`}>
+      <CardContent className="p-8 flex flex-col h-full">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h3 className="text-3xl font-bold mb-2">{title}</h3>
+          {subtitle && <p className="text-white/70 mb-4">{subtitle}</p>}
+          
+          {/* Price section */}
+          <div className="mb-2 flex flex-col items-center">
+            {originalPrice && (
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-white/60 line-through text-lg">De R$ {originalPrice}</span>
+                <span className="text-crimson font-bold">{discountText}</span>
               </div>
+            )}
+            <div className="flex items-center justify-center">
+              <span className="text-4xl font-bold">R$ {price}</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Feature list */}
+        <div className="space-y-4 mb-8 flex-grow">
+          {priorityNote && (
+            <div className="mb-2">
+              <p className="font-semibold">{priorityNote}</p>
+              <p className="text-sm text-white/70">geralmente passamos projetos de 10 a 15k para esses membros</p>
+            </div>
+          )}
+          
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <Check size={18} className="text-crimson mt-1 shrink-0" />
               <span className="text-white/80">{feature}</span>
-            </li>
+            </div>
           ))}
-        </ul>
-      )}
-      
-      <Button className={`w-full ${popularLabel ? 'bg-crimson hover:bg-crimson/90' : 'bg-white/10 hover:bg-white/20'}`}>
-        {ctaText}
-      </Button>
-    </div>
+        </div>
+        
+        {/* Bonuses */}
+        {bonuses && bonuses.length > 0 && (
+          <div className="space-y-4 mb-8">
+            {bonuses.map((bonus, index) => (
+              <div key={index} className="flex flex-col gap-1">
+                <div className="flex items-center gap-2">
+                  <Gift size={18} className="text-crimson shrink-0" />
+                  <span className="font-semibold">{bonus.title}</span>
+                </div>
+                <p className="text-sm text-white/60 pl-7">{bonus.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        
+        {/* CTA Button */}
+        <Button 
+          className={`w-full ${highlight ? 'bg-crimson hover:bg-crimson/90' : 'bg-white/10 hover:bg-white/20'}`}
+        >
+          {ctaText}
+        </Button>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -63,45 +101,61 @@ const PricingSection = () => {
   const plans = [
     {
       title: "7 dias",
+      subtitle: "Perfeito para ver se é para você",
       price: "47,00",
       features: [
-        "Acesso completo por 7 dias",
-        "Comunidade ativa",
-        "Biblioteca de conteúdo",
-        "1 call de suporte"
+        "7 dias de acesso a comunidade",
+        "Todos os conteúdos gravados",
+        "Acesso as Calls de Suporte semanais",
+        "Acesso as atualizações semanais da comunidade",
+        "Aulas do Zero no N8n"
       ]
     },
     {
-      title: "Plano trimestral",
-      price: "97,00",
-      description: "/mês cobrados trimestralmente",
+      title: "Trimestral",
+      price: "297,00",
       features: [
-        "Acesso completo por 3 meses",
-        "Comunidade ativa",
-        "Biblioteca de conteúdo",
-        "Calls de suporte semanais",
-        "Acesso a atualizações"
-      ],
-      popularLabel: true
+        "3 meses de acesso a comunidade",
+        "Garantia de 7 dias",
+        "Todos os conteúdos gravados",
+        "Grupo de networking no WhatsApp",
+        "Acesso as Calls de Suporte semanais",
+        "Acesso as atualizações semanais da comunidade"
+      ]
     },
     {
-      title: "Plano Anual - 50% OFF",
-      price: "47,00",
-      description: "/mês cobrados anualmente",
+      title: "Anual - Mais indicado",
+      price: "797,00",
+      originalPrice: "1.180",
+      discountText: "46% OFF",
+      highlight: true,
+      priorityNote: "Prioridade a pegar implementações da nossa Agencia de IA",
       features: [
-        "Acesso completo por 12 meses",
-        "Comunidade ativa",
-        "Biblioteca de conteúdo",
-        "Calls de suporte semanais",
-        "Acesso a atualizações",
-        "Mentorias personalizadas"
+        "1 Ano de acesso a comunidade",
+        "Garantia de 7 dias",
+        "Todos os conteúdos gravados",
+        "Grupo de networking no WhatsApp",
+        "Acesso as Calls de Suporte semanais",
+        "Imersões de Micro saas",
+        "Acesso prioritário a templates",
+        "Acesso as atualizações semanais da comunidade"
+      ],
+      bonuses: [
+        {
+          title: "Bonus ao arsenal de vendas",
+          description: "Calls com clientes reais, desde mapeamento cold call e fechamento e até mesmo nossas propostas"
+        },
+        {
+          title: "1 hora de mentoria exclusiva",
+          description: "Geralmente uma Call com o TIME da MGTInc gira em torno de R$350 a hora, vamos te dar uma consultoria gratuita, ao entrar no anual"
+        }
       ]
     }
   ];
 
   return (
     <section className="section-padding bg-black section-container">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
         Planos
       </h2>
       
@@ -110,10 +164,14 @@ const PricingSection = () => {
           <PricingCard
             key={index}
             title={plan.title}
+            subtitle={plan.subtitle}
             price={plan.price}
-            description={plan.description}
             features={plan.features}
-            popularLabel={plan.popularLabel}
+            highlight={plan.highlight}
+            originalPrice={plan.originalPrice}
+            discountText={plan.discountText}
+            bonuses={plan.bonuses}
+            priorityNote={plan.priorityNote}
           />
         ))}
       </div>
