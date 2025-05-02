@@ -121,14 +121,14 @@ const AgentsSection = () => {
       title: "Negócios Locais",
       description: "Atraia e converta clientes para seu restaurante, clínica, lojas, e-commerce, academia ou qualquer negócio local sem depender de atendentes."
     }, {
+      title: "Pessoas que querem sair da CLT",
+      description: "O mercado de automação é o melhor caminho para conquistar sua independência financeira. Com agentes de I.A. trabalhando para você 24/7, é possível criar um negócio escalável sem precisar gerenciar equipes."
+    }, {
       title: "Agências",
       description: "Sua agência pode parar de perder tempo com leads frios. Os agentes de I.A. captam, qualificam e segmentam clientes automaticamente, permitindo que sua equipe foque no que realmente importa."
     }, {
       title: "Prestadores de Serviço",
       description: "Seja para consultorias, profissionais liberais ou qualquer serviço, os agentes de I.A. filtram interessados, automatizam atendimentos e preenchem sua agenda sem você precisar levantar um dedo."
-    }, {
-      title: "Pessoas que querem sair da CLT",
-      description: "O mercado de automação é o melhor caminho para conquistar sua independência financeira. Com agentes de I.A. trabalhando para você 24/7, é possível criar um negócio escalável sem precisar gerenciar equipes."
     }
   ];
   
