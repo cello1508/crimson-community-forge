@@ -1,10 +1,7 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
-
 const HeroSection = () => {
-  return (
-    <section className="min-h-[80vh] flex flex-col md:flex-row items-center py-10 section-container">
+  return <section className="min-h-[80vh] flex flex-col md:flex-row items-center py-10 section-container">
       <div className="flex-1 space-y-6 pr-0 md:pr-8">
         <div className="mb-8">
           <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
@@ -25,26 +22,13 @@ const HeroSection = () => {
       <div className="flex-1 mt-10 md:mt-0">
         <div className="container-dark p-8 space-y-6">
           <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-black">
-            <iframe 
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/zKk3rnqlGLY" 
-              title="Demonstração da comunidade" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen>
+            <iframe className="w-full h-full" src="https://www.youtube.com/embed/zKk3rnqlGLY" title="Demonstração da comunidade" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
             </iframe>
           </div>
           
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold">Desmontração</h3>
-            <p className="text-white/80">
-              Veja como nossa comunidade funciona na prática e como podemos ajudar você a alcançar seus objetivos.
-            </p>
-          </div>
+          
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
