@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 const HeroSection = () => {
@@ -20,13 +21,11 @@ const HeroSection = () => {
       </div>
       
       <div className="flex-1 mt-10 md:mt-0">
-        <div className="container-dark p-8 space-y-6">
+        <div className="container-dark p-6 rounded-lg w-full max-w-xl mx-auto">
           <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden bg-black">
-            <iframe className="w-full h-full" src="https://www.youtube.com/embed/zKk3rnqlGLY" title="Demonstração da comunidade" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
+            <iframe className="w-full h-[315px]" src="https://www.youtube.com/embed/zKk3rnqlGLY" title="Demonstração da comunidade" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
             </iframe>
           </div>
-          
-          
         </div>
       </div>
     </section>;
