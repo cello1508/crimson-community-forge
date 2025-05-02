@@ -19,7 +19,7 @@ const AgentTarget = ({
           {index + 1}
         </div>
       </div>
-      <CardContent className="pt-6 pb-6 px-6">
+      <CardContent className="pt-6 pb-6 px-6 dotted-background">
         <h3 className="text-xl font-bold mb-3 text-black">{title}</h3>
         <p className="text-gray-700">{description}</p>
       </CardContent>
