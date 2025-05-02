@@ -47,15 +47,24 @@ const BenefitsSection = () => {
           </h2>
           
           <div className="relative flex items-center justify-center">
-            <div className="w-40 h-40 rounded-full border-2 border-crimson/30 flex items-center justify-center relative animate-pulse">
-              <div className="w-32 h-32 rounded-full border-2 border-white/20 bg-dark flex items-center justify-center">
+            <div className="w-40 h-40 rounded-full border border-crimson/40 flex items-center justify-center">
+              <div className="w-32 h-32 rounded-full border border-white/20 bg-dark flex items-center justify-center flex-col">
                 <span className="text-xl font-medium text-crimson">metodologia</span>
+                <span className="text-xs text-white/60 mt-1 px-4 text-center">nossa abordagem única</span>
               </div>
               <div className="absolute w-full h-full">
-                <div className="absolute top-1/2 -right-12 w-20 h-0.5 bg-crimson/30 transform -rotate-45"></div>
-                <div className="absolute -top-12 left-1/2 w-0.5 h-12 bg-crimson/30"></div>
-                <div className="absolute top-1/2 -left-12 w-20 h-0.5 bg-crimson/30 transform rotate-45"></div>
-                <div className="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-crimson/30"></div>
+                <div className="absolute top-1/2 -right-20 w-20 h-0.5 bg-crimson/30 transform -rotate-45">
+                  <span className="absolute -top-6 right-0 text-xs text-white/80">prática</span>
+                </div>
+                <div className="absolute -top-20 left-1/2 w-0.5 h-20 bg-crimson/30">
+                  <span className="absolute -top-6 -left-8 text-xs text-white/80">teoria</span>
+                </div>
+                <div className="absolute top-1/2 -left-20 w-20 h-0.5 bg-crimson/30 transform rotate-45">
+                  <span className="absolute -top-6 left-0 text-xs text-white/80">mentorias</span>
+                </div>
+                <div className="absolute -bottom-20 left-1/2 w-0.5 h-20 bg-crimson/30">
+                  <span className="absolute bottom-0 -left-12 text-xs text-white/80">networking</span>
+                </div>
               </div>
             </div>
           </div>
