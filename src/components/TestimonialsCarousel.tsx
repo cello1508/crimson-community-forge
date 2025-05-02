@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { 
   Carousel,
   CarouselContent,
@@ -7,7 +7,8 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/components/ui/carousel";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { useCarousel } from "@/components/ui/carousel";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface TestimonialProps {
   name: string;
@@ -15,26 +16,6 @@ interface TestimonialProps {
   content: string;
   imageSrc: string;
 }
-
-const Testimonial = ({ name, role, content, imageSrc }: TestimonialProps) => {
-  return (
-    <div className="container-dark p-6 h-full flex flex-col">
-      <div className="flex-1">
-        <p className="text-white/80 mb-4">{content}</p>
-      </div>
-      <div className="flex items-center gap-4">
-        <Avatar className="h-12 w-12 rounded-full border border-crimson/30">
-          <AvatarImage src={imageSrc} alt={name} />
-          <AvatarFallback className="bg-crimson/30">{name.charAt(0)}</AvatarFallback>
-        </Avatar>
-        <div>
-          <p className="font-semibold">{name}</p>
-          <p className="text-sm text-white/60">{role}</p>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const TestimonialsCarousel = () => {
   const testimonials = [
@@ -76,6 +57,25 @@ const TestimonialsCarousel = () => {
     },
   ];
 
+  // Create a custom carousel hook to automate scrolling
+  const AutoScrollCarousel = ({ children }: { children: React.ReactNode }) => {
+    const api = useCarousel();
+    
+    useEffect(() => {
+      const interval = setInterval(() => {
+        if (api.canScrollNext) {
+          api.scrollNext();
+        } else {
+          api.scrollTo(0); // Return to first slide when reaching the end
+        }
+      }, 3000); // Scroll every 3 seconds
+      
+      return () => clearInterval(interval);
+    }, [api]);
+    
+    return children;
+  };
+
   return (
     <section className="py-16 overflow-hidden section-container">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
@@ -92,28 +92,23 @@ const TestimonialsCarousel = () => {
         }}
         className="w-full px-4"
       >
-        <CarouselContent>
-          {testimonials.map((testimonial, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
-              <div className="bg-dark rounded-lg overflow-hidden aspect-[4/5] flex flex-col">
-                <img 
-                  src={testimonial.imageSrc} 
-                  alt={testimonial.name} 
-                  className="w-full h-[60%] object-cover"
-                />
-                <div className="p-4 flex flex-col h-[40%]">
-                  <p className="text-sm text-white/80 mb-2 line-clamp-3 flex-1">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-xs text-crimson">{testimonial.role}</p>
-                  </div>
+        <AutoScrollCarousel>
+          <CarouselContent>
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                <div className="bg-dark rounded-lg overflow-hidden">
+                  <AspectRatio ratio={4/5}>
+                    <img 
+                      src={testimonial.imageSrc} 
+                      alt={testimonial.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  </AspectRatio>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </AutoScrollCarousel>
         <CarouselPrevious className="left-2" />
         <CarouselNext className="right-2" />
       </Carousel>
