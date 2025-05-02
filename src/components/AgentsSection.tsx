@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
@@ -16,7 +17,7 @@ const AgentTarget = ({
   index
 }: AgentTargetProps) => {
   return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-900">
-      <div className="absolute top-6 right-6">
+      <div className="absolute top-8 right-6">
         <div className="w-12 h-12 rounded-full bg-[#ea4b71] flex items-center justify-center text-white text-xl font-bold shadow-lg">
           {index + 1}
         </div>
