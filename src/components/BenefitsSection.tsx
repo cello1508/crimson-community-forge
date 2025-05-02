@@ -1,13 +1,10 @@
-
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-
 interface BenefitCardProps {
   title: string;
   description: string;
   emoji: string;
 }
-
 const BenefitCard = ({
   title,
   description,
@@ -23,7 +20,6 @@ const BenefitCard = ({
       </CardContent>
     </Card>;
 };
-
 const BenefitsSection = () => {
   const benefits = [{
     title: "Call de suporte toda Quarta feira",
@@ -42,28 +38,9 @@ const BenefitsSection = () => {
     description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
     emoji: "🚀"
   }];
-
   return <section className="section-padding section-container">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-6 flex flex-col md:flex-row items-center gap-8">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Benefícios de participar da comunidade
-            </h2>
-          </div>
-          
-          <div className="relative">
-            <div className="w-36 h-36 rounded-full border-2 border-white/20 flex items-center justify-center relative">
-              <span className="text-lg font-medium">metodologia</span>
-              <div className="absolute w-full h-full">
-                <a href="#metodologia" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                  <span className="sr-only">Ver nossa metodologia</span>
-                </a>
-                <div className="absolute -top-10 left-1/2 w-0.5 h-10 bg-white/30"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         <div className="grid grid-cols-1 gap-4">
           {benefits.map((benefit, index) => <BenefitCard key={index} {...benefit} />)}
@@ -71,5 +48,4 @@ const BenefitsSection = () => {
       </div>
     </section>;
 };
-
 export default BenefitsSection;
