@@ -13,15 +13,15 @@ const AgentTarget = ({
   index
 }: AgentTargetProps) => {
   // Circular numbers with the site's crimson color
-  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-white">
+  return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-950">
       <div className="absolute top-6 right-6">
         <div className="w-12 h-12 rounded-full bg-[#ea4b71] flex items-center justify-center text-white text-xl font-bold">
           {index + 1}
         </div>
       </div>
       <CardContent className="pt-6 pb-6 px-6 dotted-background">
-        <h3 className="text-xl font-bold mb-3 text-black">{title}</h3>
-        <p className="text-gray-700">{description}</p>
+        <h3 className="text-xl font-bold mb-3 text-zinc-50">{title}</h3>
+        <p className="text-zinc-300">{description}</p>
       </CardContent>
     </Card>;
 };
