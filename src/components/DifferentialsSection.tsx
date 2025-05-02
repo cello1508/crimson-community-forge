@@ -1,3 +1,4 @@
+
 import React from "react";
 import { X } from "lucide-react";
 const DifferentialsSection = () => {
@@ -6,8 +7,8 @@ const DifferentialsSection = () => {
         Diferenciais
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-center">
-        <div className="col-span-1 md:col-span-2 container-dark p-6 h-full min-h-[300px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-11 gap-3 items-center">
+        <div className="col-span-1 md:col-span-2 lg:col-span-5 container-dark p-6 h-full min-h-[300px]">
           <h3 className="text-xl font-semibold mb-4">Comunidade | Checklist</h3>
           <ul className="space-y-3">
             <li className="flex items-center gap-2">
@@ -53,11 +54,11 @@ const DifferentialsSection = () => {
           </ul>
         </div>
 
-        <div className="col-span-1 flex items-center justify-center">
+        <div className="col-span-1 lg:col-span-1 flex items-center justify-center">
           <X className="w-12 h-12 text-crimson" />
         </div>
 
-        <div className="col-span-1 md:col-span-2 container-dark p-6 h-full min-h-[300px]">
+        <div className="col-span-1 md:col-span-2 lg:col-span-5 container-dark p-6 h-full min-h-[300px]">
           <h3 className="text-xl font-semibold mb-4">Outras comunidades</h3>
           <ul className="space-y-3">
             <li className="flex items-center gap-2">
