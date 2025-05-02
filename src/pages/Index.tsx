@@ -12,7 +12,6 @@ import PricingSection from "@/components/PricingSection";
 import FaqSection from "@/components/FaqSection";
 import FooterSection from "@/components/FooterSection";
 import AgentsSection from "@/components/AgentsSection";
-import ArsenalDeVendasSection from "@/components/ArsenalDeVendasSection";
 
 const Index = () => {
   return (
@@ -21,7 +20,6 @@ const Index = () => {
       <TestimonialsCarousel />
       <BenefitsSection />
       <YoutubeFeedbackSection />
-      <ArsenalDeVendasSection />
       <DifferentialsSection />
       <AgentsSection />
       <InsideViewSection />
