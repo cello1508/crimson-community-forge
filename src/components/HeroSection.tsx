@@ -40,11 +40,6 @@ const HeroSection = () => {
             <p className="text-white/80">
               Veja como nossa comunidade funciona na prática e como podemos ajudar você a alcançar seus objetivos.
             </p>
-            
-            <h3 className="text-xl font-semibold">Depoimentos</h3>
-            <p className="text-white/80">
-              Histórias reais de membros que transformaram suas vidas profissionais através da nossa comunidade.
-            </p>
           </div>
         </div>
       </div>
