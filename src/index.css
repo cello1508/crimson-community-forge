@@ -61,3 +61,11 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6;
   }
 }
+
+@layer utilities {
+  .dotted-background {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 10px 10px;
+    background-position: 0 0;
+  }
+}
