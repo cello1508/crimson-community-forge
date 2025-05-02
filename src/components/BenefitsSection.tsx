@@ -1,10 +1,14 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+
 interface BenefitCardProps {
   title: string;
   description: string;
   emoji: string;
 }
+
 const BenefitCard = ({
   title,
   description,
@@ -20,6 +24,25 @@ const BenefitCard = ({
       </CardContent>
     </Card>;
 };
+
+type MethodologyStepProps = {
+  title: string;
+  isLast?: boolean;
+};
+
+const MethodologyStep: React.FC<MethodologyStepProps> = ({ title, isLast = false }) => {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="border-2 border-white/30 px-4 py-2 w-full text-center">
+        <h3 className="text-base font-medium">{title}</h3>
+      </div>
+      {!isLast && (
+        <div className="h-6 w-0.5 bg-white/30 my-1"></div>
+      )}
+    </div>
+  );
+};
+
 const BenefitsSection = () => {
   const benefits = [{
     title: "Call de suporte toda Quarta feira",
@@ -38,8 +61,20 @@ const BenefitsSection = () => {
     description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
     emoji: "🚀"
   }];
+
+  const methodologySteps = [
+    "Início da Jornada",
+    "Domine a Infraestrutura",
+    "Instale e Integre com Precisão",
+    "COMO mapear gargalos",
+    "Estruture o Agente de IA",
+    "Fazendo IAs que vendem",
+    "Tools que ninguém aplica",
+    "Como vender como um verdadeiro mestre"
+  ];
+
   return <section className="section-padding section-container">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">
             Benefícios de participar da comunidade
@@ -48,11 +83,41 @@ const BenefitsSection = () => {
 
         <div className="grid grid-cols-1 gap-4">
           <div className="flex justify-end mb-2">
-            
+            <div className="bg-dark border border-white/10 px-4 py-2 rounded-md">
+              <span className="text-crimson font-medium">Comunidade exclusiva</span>
+            </div>
           </div>
           {benefits.map((benefit, index) => <BenefitCard key={index} {...benefit} />)}
+        </div>
+
+        <div className="space-y-6">
+          <div className="bg-dark border border-white/10 p-5 rounded-lg">
+            <h2 className="text-2xl font-bold mb-4 text-center">
+              Nossa Metodologia
+            </h2>
+            <p className="text-white/70 text-sm mb-6 text-center">
+              Um caminho estruturado para dominar a criação de agentes de IA
+            </p>
+            
+            <div className="flex flex-col items-center justify-center max-w-xs mx-auto">
+              {methodologySteps.map((step, index) => (
+                <MethodologyStep 
+                  key={index} 
+                  title={step} 
+                  isLast={index === methodologySteps.length - 1}
+                />
+              ))}
+            </div>
+            
+            <Separator className="my-4 bg-white/10" />
+            
+            <p className="text-white/70 text-xs text-center">
+              Nossa metodologia exclusiva foi desenvolvida após anos de experiência prática
+            </p>
+          </div>
         </div>
       </div>
     </section>;
 };
+
 export default BenefitsSection;

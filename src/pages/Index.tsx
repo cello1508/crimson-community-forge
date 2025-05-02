@@ -13,7 +13,6 @@ import FaqSection from "@/components/FaqSection";
 import FooterSection from "@/components/FooterSection";
 import AgentsSection from "@/components/AgentsSection";
 import ArsenalDeVendasSection from "@/components/ArsenalDeVendasSection";
-import MethodologySection from "@/components/MethodologySection";
 
 const Index = () => {
   return (
@@ -21,7 +20,6 @@ const Index = () => {
       <HeroSection />
       <TestimonialsCarousel />
       <BenefitsSection />
-      <MethodologySection />
       <YoutubeFeedbackSection />
       <ArsenalDeVendasSection />
       <DifferentialsSection />
