@@ -26,7 +26,7 @@ const YoutubeFeedbackSection = () => {
         <p className="text-xl mt-6 mb-10 text-center text-crimson">Depoimentos do youtube</p>
       </div>
       
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <Carousel 
           opts={{
             loop: true,
@@ -36,7 +36,7 @@ const YoutubeFeedbackSection = () => {
         >
           <CarouselContent className="py-4">
             {testimonialImages.map((imageUrl, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-2/5">
                 <Card className="overflow-hidden border border-white/10 hover:border-crimson/30 transition-300 h-full bg-dark">
                   <AspectRatio ratio={16/9} className="h-full">
                     <div className="flex items-center justify-center h-full bg-black/50">
@@ -51,7 +51,7 @@ const YoutubeFeedbackSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center gap-4 mt-6">
+          <div className="flex justify-center gap-4 mt-8">
             <CarouselPrevious className="relative static" />
             <CarouselNext className="relative static" />
           </div>
