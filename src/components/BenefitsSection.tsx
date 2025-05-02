@@ -2,7 +2,6 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Phone, Users, RefreshCcw, Rocket } from "lucide-react";
 
 interface BenefitCardProps {
   title: string;
@@ -16,7 +15,7 @@ const BenefitCard = ({
   emoji
 }: BenefitCardProps) => {
   return (
-    <Card className="bg-dark border border-white/10 hover:border-crimson/50 transition-all duration-300">
+    <Card className="bg-dark border border-white/10 hover:border-crimson/50 transition-all duration-300 h-full">
       <CardContent className="p-6">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-2xl" role="img" aria-label="benefit icon">{emoji}</span>
@@ -84,10 +83,11 @@ const BenefitsSection = () => {
 
   return (
     <section className="section-padding section-container">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* First column - Benefits heading */}
-        <div className="space-y-6">
-          <h2 className="text-4xl font-bold">
+      {/* Bento Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Main Header - Spans 2 columns on md+ screens */}
+        <div className="md:col-span-2 space-y-6 p-6 bg-dark/50 rounded-lg border border-white/10">
+          <h2 className="text-3xl md:text-4xl font-bold">
             Benefícios de participar da comunidade
           </h2>
           <p className="text-white/70">
@@ -100,40 +100,38 @@ const BenefitsSection = () => {
           </div>
         </div>
 
-        {/* Second column - Benefits cards */}
-        <div className="grid grid-cols-1 gap-4">
-          {benefits.map((benefit, index) => (
-            <BenefitCard key={index} {...benefit} />
-          ))}
+        {/* Methodology Box - Spans 2 columns on md+ screens */}
+        <div className="md:col-span-2 bg-dark border border-white/10 p-5 rounded-lg">
+          <h2 className="text-2xl font-bold mb-4 text-center">
+            Nossa Metodologia
+          </h2>
+          <p className="text-white/70 text-sm mb-6 text-center">
+            Um caminho estruturado para dominar a criação de agentes de IA
+          </p>
+          
+          <div className="flex flex-col items-center justify-center max-w-xs mx-auto">
+            {methodologySteps.map((step, index) => (
+              <MethodologyStep 
+                key={index} 
+                title={step} 
+                isLast={index === methodologySteps.length - 1} 
+              />
+            ))}
+          </div>
+          
+          <Separator className="my-4 bg-white/10" />
+          
+          <p className="text-white/70 text-xs text-center">
+            Nossa metodologia exclusiva foi desenvolvida após anos de experiência prática
+          </p>
         </div>
 
-        {/* Third column - Methodology */}
-        <div className="space-y-6">
-          <div className="bg-dark border border-white/10 p-5 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4 text-center">
-              Nossa Metodologia
-            </h2>
-            <p className="text-white/70 text-sm mb-6 text-center">
-              Um caminho estruturado para dominar a criação de agentes de IA
-            </p>
-            
-            <div className="flex flex-col items-center justify-center max-w-xs mx-auto">
-              {methodologySteps.map((step, index) => (
-                <MethodologyStep 
-                  key={index} 
-                  title={step} 
-                  isLast={index === methodologySteps.length - 1} 
-                />
-              ))}
-            </div>
-            
-            <Separator className="my-4 bg-white/10" />
-            
-            <p className="text-white/70 text-xs text-center">
-              Nossa metodologia exclusiva foi desenvolvida após anos de experiência prática
-            </p>
+        {/* Benefits Cards - Each takes 1 column on large screens, max 2 columns on medium screens */}
+        {benefits.map((benefit, index) => (
+          <div key={index} className="h-full">
+            <BenefitCard {...benefit} />
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );
