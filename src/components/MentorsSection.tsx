@@ -1,5 +1,7 @@
 
 import React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Award } from "lucide-react";
 
 interface MentorCardProps {
   name: string;
@@ -7,11 +9,14 @@ interface MentorCardProps {
   bio: string;
   achievements: string[];
   imageSrc: string;
+  isPrimary?: boolean;
 }
 
-const MentorCard = ({ name, role, bio, achievements, imageSrc }: MentorCardProps) => {
+const MentorCard = ({ name, role, bio, achievements, imageSrc, isPrimary = false }: MentorCardProps) => {
   return (
-    <div className="bg-dark rounded-lg overflow-hidden border border-white/10 hover:border-crimson/30 transition-all duration-300">
+    <div className={`bg-dark rounded-lg overflow-hidden border ${isPrimary 
+      ? "border-crimson/50 shadow-lg shadow-crimson/20" 
+      : "border-white/10 hover:border-crimson/30"} transition-all duration-300`}>
       <div className="relative">
         <div className="h-80 overflow-hidden">
           <img 
@@ -21,12 +26,15 @@ const MentorCard = ({ name, role, bio, achievements, imageSrc }: MentorCardProps
           />
         </div>
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
-          <h3 className="text-2xl font-bold text-crimson">{name}</h3>
+          <div className="flex items-center gap-2">
+            {isPrimary && <Award className="text-crimson" size={24} />}
+            <h3 className={`${isPrimary ? "text-3xl" : "text-2xl"} font-bold ${isPrimary ? "text-crimson" : "text-crimson"}`}>{name}</h3>
+          </div>
           <p className="text-white">{role}</p>
         </div>
       </div>
       
-      <div className="p-6">
+      <div className={`p-6 ${isPrimary ? "bg-gradient-to-b from-dark to-black" : ""}`}>
         <p className="text-white/80 mb-6">{bio}</p>
         
         <div className="space-y-2">
@@ -53,7 +61,8 @@ const MentorsSection = () => {
         "Mais de R$150 mil faturados com implementações",
         "Pioneiro em Agentes de IA dentro do n8n"
       ],
-      imageSrc: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/ZFxnAM51k7R20jlyhnUBdIE0gn1xCgN2_6fa8bd2b0330e014de64236cbdf36f372cb2c615a19c436ba3d7076efe143ff6.jpg"
+      imageSrc: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/ZFxnAM51k7R20jlyhnUBdIE0gn1xCgN2_6fa8bd2b0330e014de64236cbdf36f372cb2c615a19c436ba3d7076efe143ff6.jpg",
+      isPrimary: true
     },
     {
       name: "Felipe Tambara",
@@ -70,9 +79,10 @@ const MentorsSection = () => {
 
   return (
     <section className="section-padding bg-black section-container">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
         Conheça seus mentores
       </h2>
+      <p className="text-xl text-center text-crimson mb-12">Aprenda com quem já está no mercado</p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {mentors.map((mentor, index) => (
