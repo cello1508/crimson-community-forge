@@ -9,7 +9,7 @@ const YoutubeFeedbackSection = () => {
         <h2 className="text-2xl md:text-3xl font-semibold text-center">
           Já ajudei milhares de pessoas no youtube de forma 100% gratuita
         </h2>
-        <p className="text-xl mt-6 mb-10 text-center text-crimson">Já imaginou que passo em meu conteúdo pago?</p>
+        <p className="text-xl mt-6 mb-10 text-center text-crimson">Já imaginou o que eu compartilho no meu conteúdo pago?</p>
       </div>
       
       <div className="max-w-6xl mx-auto">
