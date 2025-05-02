@@ -11,6 +11,7 @@ import MentorsSection from "@/components/MentorsSection";
 import PricingSection from "@/components/PricingSection";
 import FaqSection from "@/components/FaqSection";
 import FooterSection from "@/components/FooterSection";
+import AgentsSection from "@/components/AgentsSection";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <TestimonialsCarousel />
       <BenefitsSection />
       <DifferentialsSection />
+      <AgentsSection />
       <InsideViewSection />
       <ContentSection />
       <YoutubeFeedbackSection />
