@@ -1,19 +1,23 @@
+
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 interface AgentTargetProps {
   title: string;
   description: string;
   index: number;
+  imageUrl: string;
 }
 
 const AgentTarget = ({
   title,
   description,
-  index
+  index,
+  imageUrl
 }: AgentTargetProps) => {
   return <Card className="overflow-hidden relative transition-all duration-300 hover:shadow-lg border-none bg-zinc-900 h-64">
       <div className="absolute top-16 right-6">
@@ -29,6 +33,11 @@ const AgentTarget = ({
             ))}
           </div>
         </div>
+        
+        <Avatar className="h-16 w-16 mb-4">
+          <AvatarImage src={imageUrl} alt={title} />
+        </Avatar>
+        
         <h3 className="text-xl font-bold mb-3 text-zinc-50">{title}</h3>
         <p className="text-zinc-300">{description}</p>
       </CardContent>
@@ -123,29 +132,44 @@ const AgentsSection = () => {
   const agentTargets = [
     {
       title: "Infoprodutores",
-      description: "Se você vende cursos, mentorias ou produtos digitais, seus agentes de I.A. automatizam o contato com leads, qualificam compradores e aumentam suas conversões."
-    }, {
+      description: "Se você vende cursos, mentorias ou produtos digitais, seus agentes de I.A. automatizam o contato com leads, qualificam compradores e aumentam suas conversões.",
+      imageUrl: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/AJz7go4gUbXIm31hzznTRMPchKaf3fSh_b8af581c81e05c851a530d32681605e3e6e765854707807609a5728b20a4fce3.png"
+    }, 
+    {
       title: "Negócios Locais",
-      description: "Atraia e converta clientes para seu restaurante, clínica, lojas, e-commerce, academia ou qualquer negócio local sem depender de atendentes."
-    }, {
-      title: "Agências",
-      description: "Sua agência pode parar de perder tempo com leads frios. Os agentes de I.A. captam, qualificam e segmentam clientes automaticamente, permitindo que sua equipe foque no que realmente importa."
-    }, {
-      title: "Prestadores de Serviço",
-      description: "Seja para consultorias, profissionais liberais ou qualquer serviço, os agentes de I.A. filtram interessados, automatizam atendimentos e preenchem sua agenda sem você precisar levantar um dedo."
-    }, {
+      description: "Atraia e converta clientes para seu restaurante, clínica, lojas, e-commerce, academia ou qualquer negócio local sem depender de atendentes.",
+      imageUrl: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/m7uNOXS7Ctrdzo7iesxCxGyjZ9aDmAaa_35353d76a99d11e8f4efc956ead7839863be39e007cd0d2b3682bfc73ae86a57.png"
+    }, 
+    {
       title: "Pessoas que querem sair da CLT",
-      description: "O mercado de automação é o melhor caminho para conquistar sua independência financeira. Com agentes de I.A. trabalhando para você 24/7, é possível criar um negócio escalável sem precisar gerenciar equipes."
+      description: "O mercado de automação é o melhor caminho para conquistar sua independência financeira. Com agentes de I.A. trabalhando para você 24/7, é possível criar um negócio escalável sem precisar gerenciar equipes.",
+      imageUrl: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/tc4o1uQ6MFC1UztnseDczPwE4Ooxs2MU_5ed748916720b01055d07c42233740cf63cd8541601b2b936de24e1e65e97b61.png"
+    }, 
+    {
+      title: "Agências",
+      description: "Sua agência pode parar de perder tempo com leads frios. Os agentes de I.A. captam, qualificam e segmentam clientes automaticamente, permitindo que sua equipe foque no que realmente importa.",
+      imageUrl: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/tYbADLz8j3Uc5TRYduXmGXrp8k3pitG8_76f31433fc2e5325e7f437feca8e2eda39412a61e84853c986b16b32a143d043.png"
+    }, 
+    {
+      title: "Prestadores de Serviço",
+      description: "Seja para consultorias, profissionais liberais ou qualquer serviço, os agentes de I.A. filtram interessados, automatizam atendimentos e preenchem sua agenda sem você precisar levantar um dedo.",
+      imageUrl: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/96pMshQpDkoS9ufjlM9oSJBrYhXJCMJJ_a1eaddb28e53402d153dd05de134cf4dfe44d55c882c1ff921eab33b3a62a32f.png"
+    },
+    {
+      title: "Começar no digital",
+      description: "O mercado digital é o melhor caminho para quem quer iniciar um negócio online. Com agentes de I.A. trabalhando para você 24/7, é possível criar uma presença digital efetiva sem conhecimento técnico avançado.",
+      imageUrl: "https://baserow-backend-production20240528124524339000000001.s3.amazonaws.com/user_files/SC5qMYlv6arTq4ClljUfSA5mnptzLzm4_2d98629b6e4991a0206700c991545c8f5cca66df72bbec917311e8d2f06742c0.png"
     }
   ];
   
-  // Ensure the "sair da CLT" card is in the middle position
+  // Reorder the targets to ensure proper positioning with "Sair da CLT" in the middle
   const reorderedTargets = [
-    agentTargets[0],
-    agentTargets[1], 
-    agentTargets[2], // CLT in middle position
-    agentTargets[3], 
-    agentTargets[4]
+    agentTargets[0], // Infoprodutores
+    agentTargets[1], // Negócios Locais
+    agentTargets[2], // Sair da CLT (middle position)
+    agentTargets[3], // Agências
+    agentTargets[4], // Prestadores de Serviço
+    agentTargets[5]  // Começar no digital
   ];
   
   return <div className="bg-black">
@@ -186,8 +210,16 @@ const AgentsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Os Agentes automáticos vendem perfeitamente para...</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {reorderedTargets.map((target, index) => <AgentTarget key={index} title={target.title} description={target.description} index={index} />)}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
+          {reorderedTargets.map((target, index) => 
+            <AgentTarget 
+              key={index} 
+              title={target.title} 
+              description={target.description} 
+              index={index}
+              imageUrl={target.imageUrl} 
+            />
+          )}
         </div>
 
         <div className="text-center mt-16">
