@@ -146,7 +146,7 @@ const AgentsSection = () => {
               <div className="p-6 space-y-4">
                 <p className="text-white/90">{agent.description}</p>
                 <div className="flex flex-wrap gap-2 mt-4">
-                  {agent.badges.map((badge, index) => <Badge key={index} className="bg-white text-black hover:bg-white/90 py-1.5 px-3">
+                  {agent.badges.map((badge, index) => <Badge key={index} className="text-black py-1.5 px-3 bg-[#ea4b71]">
                       {badge.text}
                     </Badge>)}
                 </div>
