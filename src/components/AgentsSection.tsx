@@ -126,6 +126,9 @@ const AgentsSection = () => {
     }, {
       title: "Prestadores de Serviço",
       description: "Seja para consultorias, profissionais liberais ou qualquer serviço, os agentes de I.A. filtram interessados, automatizam atendimentos e preenchem sua agenda sem você precisar levantar um dedo."
+    }, {
+      title: "Pessoas que querem sair da CLT",
+      description: "O mercado de automação é o melhor caminho para conquistar sua independência financeira. Com agentes de I.A. trabalhando para você 24/7, é possível criar um negócio escalável sem precisar gerenciar equipes."
     }
   ];
   
