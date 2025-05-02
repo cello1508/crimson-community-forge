@@ -1,13 +1,13 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { 
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious
+  CarouselPrevious,
+  type CarouselApi
 } from "@/components/ui/carousel";
-import { useCarousel } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface TestimonialProps {
@@ -57,24 +57,22 @@ const TestimonialsCarousel = () => {
     },
   ];
 
-  // Create a custom carousel hook to automate scrolling
-  const AutoScrollCarousel = ({ children }: { children: React.ReactNode }) => {
-    const api = useCarousel();
+  const [api, setApi] = React.useState<CarouselApi>();
+  
+  // Set up auto-scrolling with the API
+  useEffect(() => {
+    if (!api) return;
     
-    useEffect(() => {
-      const interval = setInterval(() => {
-        if (api.canScrollNext) {
-          api.scrollNext();
-        } else {
-          api.scrollTo(0); // Return to first slide when reaching the end
-        }
-      }, 3000); // Scroll every 3 seconds
-      
-      return () => clearInterval(interval);
-    }, [api]);
+    const interval = setInterval(() => {
+      if (api.canScrollNext()) {
+        api.scrollNext();
+      } else {
+        api.scrollTo(0); // Return to first slide when reaching the end
+      }
+    }, 3000); // Scroll every 3 seconds
     
-    return children;
-  };
+    return () => clearInterval(interval);
+  }, [api]);
 
   return (
     <section className="py-16 overflow-hidden section-container">
@@ -90,25 +88,24 @@ const TestimonialsCarousel = () => {
           align: "start",
           loop: true,
         }}
+        setApi={setApi}
         className="w-full px-4"
       >
-        <AutoScrollCarousel>
-          <CarouselContent>
-            {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
-                <div className="bg-dark rounded-lg overflow-hidden">
-                  <AspectRatio ratio={4/5}>
-                    <img 
-                      src={testimonial.imageSrc} 
-                      alt={testimonial.name} 
-                      className="w-full h-full object-cover"
-                    />
-                  </AspectRatio>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </AutoScrollCarousel>
+        <CarouselContent>
+          {testimonials.map((testimonial, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 pl-4">
+              <div className="bg-dark rounded-lg overflow-hidden">
+                <AspectRatio ratio={4/5}>
+                  <img 
+                    src={testimonial.imageSrc} 
+                    alt={testimonial.name} 
+                    className="w-full h-full object-cover"
+                  />
+                </AspectRatio>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
         <CarouselPrevious className="left-2" />
         <CarouselNext className="right-2" />
       </Carousel>
