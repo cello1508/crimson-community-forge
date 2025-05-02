@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
 interface BenefitCardProps {
   title: string;
@@ -14,8 +13,7 @@ const BenefitCard = ({
   description,
   emoji
 }: BenefitCardProps) => {
-  return (
-    <Card className="bg-dark border border-white/10 hover:border-crimson/50 transition-all duration-300 h-full">
+  return <Card className="bg-dark border border-white/10 hover:border-crimson/50 transition-all duration-300">
       <CardContent className="p-6">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-2xl" role="img" aria-label="benefit icon">{emoji}</span>
@@ -23,118 +21,52 @@ const BenefitCard = ({
         </div>
         <p className="text-white/70">{description}</p>
       </CardContent>
-    </Card>
-  );
-};
-
-type MethodologyStepProps = {
-  title: string;
-  isLast?: boolean;
-};
-
-const MethodologyStep: React.FC<MethodologyStepProps> = ({
-  title,
-  isLast = false
-}) => {
-  return (
-    <div className="flex flex-col items-center">
-      <div className="border-2 border-white/30 px-4 py-2 w-full text-center">
-        <h3 className="text-base font-medium">{title}</h3>
-      </div>
-      {!isLast && <div className="h-6 w-0.5 bg-white/30 my-1"></div>}
-    </div>
-  );
+    </Card>;
 };
 
 const BenefitsSection = () => {
-  const benefits = [
-    {
-      title: "Call de suporte toda Quarta feira",
-      description: "Por mais que tem muita coisa que voce pode aprender gratuitamente pela internet, sao conteudos dispersos e vai surgir duvidas em sua mente durante o processo ou até mesmo erro na hora de montar a automacao, acredite 87% dos membros da comunidade relatam isso",
-      emoji: "📞"
-    },
-    {
-      title: "Comunidade Ativa",
-      description: "Converse e tire duvidas com pessoas que ja implementao, vendem, desenvolvem ou até mesmo compram seus projetos. A comunidade do checklist exietem pioneiros na aréa e profissionais que ja faturam 6 digitos mes",
-      emoji: "👥"
-    },
-    {
-      title: "Atualizacoes de Aulas",
-      description: "Muitos cursos por ai te dao passo a passos desatualizados, e nesse mercado de IA e Agentes, voce nao pode depender disso, na mesmo velocidade da tecnologia o seu conhecimento tambem precisa se atualizar!",
-      emoji: "🔄"
-    },
-    {
-      title: "Imersoes gratuitas",
-      description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
-      emoji: "🚀"
-    }
-  ];
+  const benefits = [{
+    title: "Call de suporte toda Quarta feira",
+    description: "Por mais que tem muita coisa que voce pode aprender gratuitamente pela internet, sao conteudos dispersos e vai surgir duvidas em sua mente durante o processo ou até mesmo erro na hora de montar a automacao, acredite 87% dos membros da comunidade relatam isso",
+    emoji: "📞"
+  }, {
+    title: "Comunidade Ativa",
+    description: "Converse e tire duvidas com pessoas que ja implementao, vendem, desenvolvem ou até mesmo compram seus projetos. A comunidade do checklist exietem pioneiros na aréa e profissionais que ja faturam 6 digitos mes",
+    emoji: "👥"
+  }, {
+    title: "Atualizacoes de Aulas",
+    description: "Muitos cursos por ai te dao passo a passos desatualizados, e nesse mercado de IA e Agentes, voce nao pode depender disso, na mesmo velocidade da tecnologia o seu conhecimento tambem precisa se atualizar!",
+    emoji: "🔄"
+  }, {
+    title: "Imersoes gratuitas",
+    description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
+    emoji: "🚀"
+  }];
 
-  const methodologySteps = [
-    "Início da Jornada", 
-    "Domine a Infraestrutura", 
-    "Instale e Integre com Precisão", 
-    "COMO mapear gargalos", 
-    "Estruture o Agente de IA", 
-    "Fazendo IAs que vendem", 
-    "Tools que ninguém aplica", 
-    "Como vender como um verdadeiro mestre"
-  ];
-
-  return (
-    <section className="section-padding section-container">
-      {/* Bento Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Main Header - Spans 2 columns on md+ screens */}
-        <div className="md:col-span-2 space-y-6 p-6 bg-dark/50 rounded-lg border border-white/10">
+  return <section className="section-padding section-container">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">
             Benefícios de participar da comunidade
           </h2>
-          <p className="text-white/70">
-            Junte-se à nossa comunidade exclusiva e tenha acesso a recursos e suporte que impulsionarão sua jornada no desenvolvimento de agentes de IA.
-          </p>
-          <div className="flex justify-start mt-6">
-            <div className="bg-dark border border-white/10 px-4 py-2 rounded-md">
-              <span className="text-crimson font-medium">Comunidade exclusiva</span>
+          
+          <div className="relative">
+            <div className="w-36 h-36 rounded-full border-2 border-white/20 flex items-center justify-center relative">
+              <span className="text-lg font-medium">metodologia</span>
+              <div className="absolute w-full h-full">
+                
+                <div className="absolute -top-10 left-1/2 w-0.5 h-10 bg-white/30"></div>
+                
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Methodology Box - Spans 2 columns on md+ screens */}
-        <div className="md:col-span-2 bg-dark border border-white/10 p-5 rounded-lg">
-          <h2 className="text-2xl font-bold mb-4 text-center">
-            Nossa Metodologia
-          </h2>
-          <p className="text-white/70 text-sm mb-6 text-center">
-            Um caminho estruturado para dominar a criação de agentes de IA
-          </p>
-          
-          <div className="flex flex-col items-center justify-center max-w-xs mx-auto">
-            {methodologySteps.map((step, index) => (
-              <MethodologyStep 
-                key={index} 
-                title={step} 
-                isLast={index === methodologySteps.length - 1} 
-              />
-            ))}
-          </div>
-          
-          <Separator className="my-4 bg-white/10" />
-          
-          <p className="text-white/70 text-xs text-center">
-            Nossa metodologia exclusiva foi desenvolvida após anos de experiência prática
-          </p>
+        <div className="grid grid-cols-1 gap-4">
+          {benefits.map((benefit, index) => <BenefitCard key={index} {...benefit} />)}
         </div>
-
-        {/* Benefits Cards - Each takes 1 column on large screens, max 2 columns on medium screens */}
-        {benefits.map((benefit, index) => (
-          <div key={index} className="h-full">
-            <BenefitCard {...benefit} />
-          </div>
-        ))}
       </div>
-    </section>
-  );
+    </section>;
 };
 
 export default BenefitsSection;
