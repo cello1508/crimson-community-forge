@@ -2,6 +2,7 @@
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const YoutubeFeedbackSection = () => {
   const testimonialImages = [
@@ -36,14 +37,16 @@ const YoutubeFeedbackSection = () => {
           <CarouselContent className="py-4">
             {testimonialImages.map((imageUrl, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <Card className="overflow-hidden border border-white/10 hover:border-crimson/30 transition-300">
-                  <div className="aspect-square">
-                    <img
-                      src={imageUrl}
-                      alt={`Depoimento do YouTube ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                <Card className="overflow-hidden border border-white/10 hover:border-crimson/30 transition-300 h-full bg-dark">
+                  <AspectRatio ratio={16/9} className="h-full">
+                    <div className="flex items-center justify-center h-full bg-black/50">
+                      <img
+                        src={imageUrl}
+                        alt={`Depoimento do YouTube ${index + 1}`}
+                        className="w-full h-auto object-contain max-h-full"
+                      />
+                    </div>
+                  </AspectRatio>
                 </Card>
               </CarouselItem>
             ))}
