@@ -16,7 +16,7 @@ const DifferentialsSection = () => {
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>Roadmap personalizado para sua jornada</span>
+              <span>MAPA personalizado para sua jornada</span>
             </li>
             <li className="flex items-center gap-2">
               <div className="h-5 w-5 rounded-full bg-crimson flex items-center justify-center">
@@ -24,7 +24,7 @@ const DifferentialsSection = () => {
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>Ferramentas e recursos exclusivos</span>
+              <span>Conceitos exclusivos</span>
             </li>
             <li className="flex items-center gap-2">
               <div className="h-5 w-5 rounded-full bg-crimson flex items-center justify-center">
@@ -48,7 +48,7 @@ const DifferentialsSection = () => {
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>Networking com empresas parceiras</span>
+              <span>Networking com profissionais da área</span>
             </li>
           </ul>
         </div>
