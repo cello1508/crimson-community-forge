@@ -1,3 +1,4 @@
+
 import React from "react";
 import AgentTarget from "./agents/AgentTarget";
 import AgentCard from "./agents/AgentCard";
@@ -131,7 +132,7 @@ const AgentsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Automações e Agentes de IA são para mim?</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           {agentTargets.map((target, index) => <AgentTarget key={index} title={target.title} description={target.description} index={index} imageUrl={target.imageUrl} />)}
         </div>
 
