@@ -20,44 +20,16 @@ const MethodologyStep: React.FC<MethodologyStepProps> = ({ title, isLast = false
 };
 
 const MethodologySection = () => {
-  const steps = [
-    "Início da Jornada",
-    "Domine a Infraestrutura",
-    "Instale e Integre com Precisão",
-    "COMO mapear gargalos",
-    "Estruture o Agente de IA",
-    "Fazendo IAs que vendem",
-    "Tools que ninguém aplica",
-    "Como vender como um verdadeiro mestre"
-  ];
-
   return (
-    <section className="section-padding section-container">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Nossa Metodologia
-        </h2>
-        <p className="text-white/70 text-lg max-w-2xl mx-auto">
-          Um caminho estruturado para dominar a criação e implementação de agentes de IA que realmente geram resultados
-        </p>
+    <div className="w-36 h-36 rounded-full border-2 border-white/20 flex items-center justify-center relative">
+      <span className="text-lg font-medium">metodologia</span>
+      <div className="absolute w-full h-full">
+        <a href="#metodologia" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
+          <span className="sr-only">Ver nossa metodologia</span>
+        </a>
+        <div className="absolute -top-10 left-1/2 w-0.5 h-10 bg-white/30"></div>
       </div>
-
-      <div className="flex flex-col items-center justify-center mb-12">
-        {steps.map((step, index) => (
-          <MethodologyStep 
-            key={index} 
-            title={step} 
-            isLast={index === steps.length - 1}
-          />
-        ))}
-      </div>
-      
-      <div className="mt-8 text-center">
-        <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-          Nossa metodologia exclusiva foi desenvolvida após anos de experiência prática e já ajudou centenas de profissionais a dominarem a criação de agentes de IA que geram resultados reais.
-        </p>
-      </div>
-    </section>
+    </div>
   );
 };
 
