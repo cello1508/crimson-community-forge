@@ -54,7 +54,7 @@ const BenefitsSection = () => {
     <section className="section-padding section-container min-h-[600px] flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
         <div className="lg:col-span-5 space-y-6 flex flex-col">
-          <h2 className="text-3xl md:text-4xl font-bold mt-0 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-24">
             Benefícios de participar da comunidade
           </h2>
           
