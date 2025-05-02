@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -119,13 +118,6 @@ const ContentSection = () => {
           </div>
           
           <SupportCard />
-          
-          <div className="container-dark p-6 rounded-lg">
-            <h3 className="text-lg font-medium mb-2">Inserir o arsenal de vendas</h3>
-            <p className="text-sm text-white/60">
-              Embaixo colocar observação que só será incluso se ocmprar
-            </p>
-          </div>
         </div>
       </div>
     </section>
