@@ -22,7 +22,7 @@ const AgentTarget = ({
   
   return <div className="flex flex-col h-full border border-zinc-800 hover:border-crimson/30 rounded-lg overflow-hidden transition-all duration-300 bg-black">
       {/* Top image section */}
-      <div className={`relative ${isMobile ? 'h-96' : 'h-72'} bg-black`}>
+      <div className={`relative ${isMobile ? 'h-[500px]' : 'h-72'} bg-black`}>
         <img src={imageUrl} alt={title} className="w-full h-full object-cover object-center opacity-90" />
         
         {/* Title overlay at top */}
@@ -44,6 +44,7 @@ const AgentTarget = ({
       </div>
     </div>;
 };
+
 const AgentsSection = () => {
   const agents = [{
     title: "QUALIFICADOR DE LEADS",
