@@ -59,7 +59,7 @@ const BenefitsSection = () => {
           </h2>
           
           <div className="flex justify-center py-8">
-            <div className="w-64 h-64 rounded-full border-2 border-white/20 flex items-center justify-center relative">
+            <div className="w-64 h-64 rounded-full border-2 border-white/20 flex items-center justify-center relative animate-pulse-slow">
               <span className="text-2xl font-medium">metodologia</span>
             </div>
           </div>
