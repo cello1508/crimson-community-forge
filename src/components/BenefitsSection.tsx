@@ -41,9 +41,7 @@ const BenefitsSection = () => {
   return <section className="section-padding section-container min-h-[600px] flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
         <div className="lg:col-span-5 space-y-6 flex flex-col">
-          <h2 className="text-3xl md:text-4xl font-bold mb-24">
-            Benefícios de participar da comunidade
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-24">Você estará com pioneiros no mercado de Agentes de IA e Automações.</h2>
           
           <div className="flex justify-center py-8">
             <div className="w-64 h-64 rounded-full border-2 border-white/20 flex items-center justify-center relative animate-pulse-slow">
