@@ -21,20 +21,20 @@ const BenefitCard = ({ title, description }: BenefitCardProps) => {
 const BenefitsSection = () => {
   const benefits = [
     {
-      title: "Aulas exclusivas",
-      description: "Conteúdo atualizado e direto ao ponto, criado por especialistas ativos no mercado",
+      title: "Call de suporte toda Quarta feira",
+      description: "Por mais que tem muita coisa que voce pode aprender gratuitamente pela internet, sao conteudos dispersos e vai surgir duvidas em sua mente durante o processo ou até mesmo erro na hora de montar a automacao, acredite 87% dos membros da comunidade relatam isso",
     },
     {
-      title: "Comunidade ativa",
-      description: "Networking valioso com profissionais e iniciantes em um ambiente colaborativo",
+      title: "Comunidade Ativa",
+      description: "Converse e tire duvidas com pessoas que ja implementao, vendem, desenvolvem ou até mesmo compram seus projetos. A comunidade do checklist exietem pioneiros na aréa e profissionais que ja faturam 6 digitos mes",
     },
     {
-      title: "Call de suporte",
-      description: "Sessões semanais para tirar dúvidas e receber orientação personalizada",
+      title: "Atualizacoes de Aulas",
+      description: "Muitos cursos por ai te dao passo a passos desatualizados, e nesse mercado de IA e Agentes, voce nao pode depender disso, na mesmo velocidade da tecnologia o seu conhecimento tambem precisa se atualizar!",
     },
     {
-      title: "Imersões gratuitas",
-      description: "Workshops intensivos sobre tópicos avançados sem custo adicional",
+      title: "Imersoes gratuitas",
+      description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
     },
   ];
 
