@@ -45,10 +45,12 @@ const BenefitsSection = () => {
 
   return <section className="section-padding section-container">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Benefícios de participar da comunidade
-          </h2>
+        <div className="space-y-6 flex flex-col md:flex-row items-center gap-8">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Benefícios de participar da comunidade
+            </h2>
+          </div>
           
           <div className="relative">
             <div className="w-36 h-36 rounded-full border-2 border-white/20 flex items-center justify-center relative">
