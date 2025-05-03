@@ -165,7 +165,7 @@ const AgentsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-          {agents.map((agent, index) => <div key={index} className="bg-zinc-900 overflow-hidden relative group transition-all duration-300 border border-white/5 rounded-lg refined-dotted-background shadow-lg hover:shadow-crimson/10 hover:border-white/10">
+          {agents.map((agent, index) => <div key={index} className="overflow-hidden relative group transition-all duration-300 border border-white/5 rounded-lg refined-dotted-background shadow-lg hover:shadow-crimson/10 hover:border-white/10 bg-neutral-900">
               <div className="text-white p-6 relative">
                 <div className="absolute top-6 left-6">
                   <ArrowDown className="w-6 h-6 text-crimson" />
