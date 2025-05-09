@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Play } from "lucide-react";
+
 interface ModuleAccordionProps {
   title: string;
   lessons: string[];
@@ -35,6 +36,7 @@ const ModuleAccordion = ({
 const SupportCard = () => {
   return;
 };
+
 const ContentSection = () => {
   const modules = [{
     title: "Módulo 01: Introdução à Infraestrutura | Instalando ferramentas",
@@ -55,7 +57,13 @@ const ContentSection = () => {
     title: "Módulo 06: Do 0 ao Primeiro Agente de IA | SDR",
     lessons: ["Projeto | Webhook | Setando Dados", "Filters e introdução ao Switch", "Buffer de mensagens", "Tratamento de Áudios e Imagens", "Do prompt ao AGENTE DE IA", "Colocando Tool de Docs | De acordo com horário da MSG", "Conta na Eleven Labs | Aleatorizar áudios", "Tool de Áudio | Como fazer"]
   }];
-  const extraContent = ["aula 01", "aula 02", "aula 03"];
+  const extraContent = [
+    "Long memory e Short Memory: conceito de memoria do agente que marcelo mesmo inventou e implementou",
+    "MCP: fazendo agentes com MCP",
+    "Eventos fechados que ajudam desde o posicionamento a taticas de vendas trafego pago",
+    "Trazendo pessoas que ja tem suceso nas areas que operam", 
+    "20 templates prontos de agentes de IA"
+  ];
   return <section className="section-padding bg-black section-container">
       <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Conteúdos</h2>
       
@@ -91,4 +99,5 @@ const ContentSection = () => {
       </div>
     </section>;
 };
+
 export default ContentSection;
