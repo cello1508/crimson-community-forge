@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
@@ -9,7 +10,7 @@ const InsideViewSection = () => {
       
       <div className="container-dark p-6 max-w-4xl mx-auto aspect-video">
         <div className="w-full h-full rounded-lg overflow-hidden bg-black">
-          <iframe className="w-full h-full" src="https://www.youtube.com/embed/zKk3rnqlGLY" title="Demonstração da comunidade" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
+          <iframe className="w-full h-full" src="https://www.youtube.com/embed/cprOUiu9B8A" title="Demonstração da comunidade" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
           </iframe>
         </div>
       </div>
