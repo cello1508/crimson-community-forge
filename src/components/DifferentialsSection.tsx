@@ -1,5 +1,6 @@
 import React from "react";
-import { X } from "lucide-react";
+import { X, Check } from "lucide-react";
+
 const DifferentialsSection = () => {
   return <section className="section-padding bg-black section-container">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -12,41 +13,31 @@ const DifferentialsSection = () => {
           <ul className="space-y-3">
             <li className="flex items-center gap-2">
               <div className="h-5 w-5 rounded-full flex items-center justify-center bg-green-600">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <Check className="h-3 w-3 text-white" strokeWidth={3} />
               </div>
               <span>MAPA personalizado para sua jornada</span>
             </li>
             <li className="flex items-center gap-2">
-              <div className="h-5 w-5 rounded-full bg-crimson flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="h-5 w-5 rounded-full bg-green-600 flex items-center justify-center">
+                <Check className="h-3 w-3 text-white" strokeWidth={3} />
               </div>
               <span>Conceitos exclusivos</span>
             </li>
             <li className="flex items-center gap-2">
-              <div className="h-5 w-5 rounded-full bg-crimson flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="h-5 w-5 rounded-full bg-green-600 flex items-center justify-center">
+                <Check className="h-3 w-3 text-white" strokeWidth={3} />
               </div>
               <span>Mentorias semanais com feedback direto</span>
             </li>
             <li className="flex items-center gap-2">
-              <div className="h-5 w-5 rounded-full bg-crimson flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="h-5 w-5 rounded-full bg-green-600 flex items-center justify-center">
+                <Check className="h-3 w-3 text-white" strokeWidth={3} />
               </div>
               <span>Projetos práticos para portfolio</span>
             </li>
             <li className="flex items-center gap-2">
-              <div className="h-5 w-5 rounded-full bg-crimson flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="h-5 w-5 rounded-full bg-green-600 flex items-center justify-center">
+                <Check className="h-3 w-3 text-white" strokeWidth={3} />
               </div>
               <span>Networking com profissionais da área</span>
             </li>
