@@ -1,11 +1,14 @@
+
 import React, { useState, useEffect } from "react";
 import { Clock } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Badge } from "@/components/ui/badge";
+
 const CountdownTimer = () => {
   const [minutes, setMinutes] = useState(9);
   const [seconds, setSeconds] = useState(0);
   const isMobile = useIsMobile();
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (seconds > 0) {
@@ -19,9 +22,11 @@ const CountdownTimer = () => {
         }
       }
     }, 1000);
+
     return () => clearInterval(interval);
   }, [minutes, seconds]);
-  return <div className="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-4 shadow-md">
+
+  return <div className="w-full bg-crimson text-white py-4 shadow-md">
       <div className={`container flex ${isMobile ? 'flex-col' : 'flex-row'} items-center justify-center max-w-5xl gap-4`}>
         <div className="flex items-center">
           
@@ -37,4 +42,5 @@ const CountdownTimer = () => {
       </div>
     </div>;
 };
+
 export default CountdownTimer;
