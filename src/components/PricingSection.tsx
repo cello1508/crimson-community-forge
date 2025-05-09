@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -116,16 +115,15 @@ const PricingSection = () => {
     if (!selectedPlan) return;
     
     // Here you would typically save the whatsapp number to your database
-    console.log("WhatsApp captured:", whatsapp, "for plan:", selectedPlan.title);
+    console.log("Validated WhatsApp captured:", whatsapp, "for plan:", selectedPlan.title);
     
-    // You could send this data to your server or analytics
-    // For now, we'll just store it in localStorage as an example
+    // Store it in localStorage as an example
     try {
       const leads = JSON.parse(localStorage.getItem("whatsappLeads") || "[]");
       leads.push({
         whatsapp,
         plan: selectedPlan.title,
-        timestamp: new Date().toISOString()
+        validatedAt: new Date().toISOString()
       });
       localStorage.setItem("whatsappLeads", JSON.stringify(leads));
     } catch (error) {
