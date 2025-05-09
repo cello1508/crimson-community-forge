@@ -7,6 +7,7 @@ interface TypingAnimationProps {
   erasingSpeed?: number;
   delayBetweenWords?: number;
   className?: string;
+  withContainer?: boolean;
 }
 
 const TypingAnimation: React.FC<TypingAnimationProps> = ({
@@ -15,6 +16,7 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
   erasingSpeed = 100,
   delayBetweenWords = 1500,
   className = '',
+  withContainer = false,
 }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
@@ -50,6 +52,17 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
 
     return () => clearTimeout(timeout);
   }, [currentText, currentWordIndex, delayBetweenWords, erasingSpeed, isTyping, typingSpeed, words]);
+
+  if (withContainer) {
+    return (
+      <div className="bg-crimson text-white rounded-full px-6 py-3 inline-block">
+        <span className={className}>
+          {currentText}
+          <span className="animate-pulse">|</span>
+        </span>
+      </div>
+    );
+  }
 
   return (
     <span className={className}>

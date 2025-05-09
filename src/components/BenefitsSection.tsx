@@ -53,10 +53,11 @@ const BenefitsSection = () => {
           </h2>
           <TypingAnimation 
             words={typingWords} 
-            className="text-2xl font-medium text-crimson"
+            className="text-2xl font-medium text-white"
             typingSpeed={100}
             erasingSpeed={80}
             delayBetweenWords={2000}
+            withContainer={true}
           />
         </div>
 
