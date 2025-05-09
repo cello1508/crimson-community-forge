@@ -1,4 +1,3 @@
-
 import React from "react";
 import { X } from "lucide-react";
 const DifferentialsSection = () => {
@@ -12,7 +11,7 @@ const DifferentialsSection = () => {
           <h3 className="text-xl font-semibold mb-4">Comunidade | Checklist</h3>
           <ul className="space-y-3">
             <li className="flex items-center gap-2">
-              <div className="h-5 w-5 rounded-full bg-crimson flex items-center justify-center">
+              <div className="h-5 w-5 rounded-full flex items-center justify-center bg-green-600">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
