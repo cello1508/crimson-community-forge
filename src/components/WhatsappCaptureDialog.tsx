@@ -60,7 +60,7 @@ const WhatsappCaptureDialog = ({
       const fullWhatsappNumber = `${values.countryCode}${values.whatsapp}`;
       
       // Call webhook to verify if WhatsApp number is valid
-      const response = await fetch("https://auto.mgtautomacoes.cloud/webhook-test/verifica-whatsapp", {
+      const response = await fetch("https://autowebhook.mgtautomacoes.cloud/webhook/verifica-whatsapp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
