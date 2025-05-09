@@ -1,8 +1,9 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, Gift, DollarSign } from "lucide-react";
+import WhatsappCaptureDialog from "./WhatsappCaptureDialog";
 
 interface PricingCardProps {
   title: string;
@@ -20,6 +21,7 @@ interface PricingCardProps {
   priorityNote?: string;
   dailyPrice?: string;
   checkoutUrl: string;
+  onCheckoutClick: (planTitle: string, checkoutUrl: string) => void;
 }
 
 const PricingCard = ({
@@ -34,7 +36,8 @@ const PricingCard = ({
   bonuses,
   priorityNote,
   dailyPrice,
-  checkoutUrl
+  checkoutUrl,
+  onCheckoutClick
 }: PricingCardProps) => {
   return <Card className={`border-zinc-800 bg-black h-full flex flex-col ${highlight ? 'border-2 border-crimson/70' : ''}`}>
       <CardContent className="p-8 flex flex-col h-full">
@@ -88,7 +91,7 @@ const PricingCard = ({
         {/* CTA Button */}
         <Button 
           className={`w-full ${highlight ? 'bg-crimson hover:bg-crimson/90' : 'bg-white/10 hover:bg-white/20'}`}
-          onClick={() => window.open(checkoutUrl, "_blank")}
+          onClick={() => onCheckoutClick(title, checkoutUrl)}
         >
           {ctaText}
         </Button>
@@ -97,6 +100,43 @@ const PricingCard = ({
 };
 
 const PricingSection = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<{title: string, checkoutUrl: string} | null>(null);
+
+  const handleCheckoutClick = (planTitle: string, checkoutUrl: string) => {
+    setSelectedPlan({title: planTitle, checkoutUrl});
+    setDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
+  const handleWhatsappSubmit = (whatsapp: string) => {
+    if (!selectedPlan) return;
+    
+    // Here you would typically save the whatsapp number to your database
+    console.log("WhatsApp captured:", whatsapp, "for plan:", selectedPlan.title);
+    
+    // You could send this data to your server or analytics
+    // For now, we'll just store it in localStorage as an example
+    try {
+      const leads = JSON.parse(localStorage.getItem("whatsappLeads") || "[]");
+      leads.push({
+        whatsapp,
+        plan: selectedPlan.title,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem("whatsappLeads", JSON.stringify(leads));
+    } catch (error) {
+      console.error("Error saving lead:", error);
+    }
+    
+    // Close dialog and redirect
+    setDialogOpen(false);
+    window.open(selectedPlan.checkoutUrl, "_blank");
+  };
+
   const plans = [{
     title: "7 dias",
     subtitle: "Perfeito para ver se é para você",
@@ -133,14 +173,40 @@ const PricingSection = () => {
     }],
     checkoutUrl: "https://pay.kirvano.com/ca5d5160-11ec-4ee5-b391-98f6e9487211"
   }];
+  
   return <section className="section-padding bg-black section-container">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
         Planos
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {plans.map((plan, index) => <PricingCard key={index} title={plan.title} subtitle={plan.subtitle} price={plan.price} features={plan.features} highlight={plan.highlight} originalPrice={plan.originalPrice} discountText={plan.discountText} bonuses={plan.bonuses} priorityNote={plan.priorityNote} dailyPrice={plan.dailyPrice} checkoutUrl={plan.checkoutUrl} />)}
+        {plans.map((plan, index) => (
+          <PricingCard 
+            key={index} 
+            title={plan.title} 
+            subtitle={plan.subtitle} 
+            price={plan.price} 
+            features={plan.features} 
+            highlight={plan.highlight} 
+            originalPrice={plan.originalPrice} 
+            discountText={plan.discountText} 
+            bonuses={plan.bonuses} 
+            priorityNote={plan.priorityNote} 
+            dailyPrice={plan.dailyPrice} 
+            checkoutUrl={plan.checkoutUrl}
+            onCheckoutClick={handleCheckoutClick} 
+          />
+        ))}
       </div>
+
+      {selectedPlan && (
+        <WhatsappCaptureDialog
+          isOpen={dialogOpen}
+          onClose={handleDialogClose}
+          onSubmit={handleWhatsappSubmit}
+          planName={selectedPlan.title}
+        />
+      )}
     </section>;
 };
 
