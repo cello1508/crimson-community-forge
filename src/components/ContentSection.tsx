@@ -33,18 +33,7 @@ const ModuleAccordion = ({
     </Accordion>;
 };
 const SupportCard = () => {
-  return <Card className="bg-dark border-white/10">
-      <CardHeader>
-        <CardTitle className="text-xl">Calls de suporte</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-sm text-white/60">Toda quarta às 19:30</p>
-        
-        <div className="container-dark p-4 rounded">
-          <p className="text-center text-sm">Uma print talvez? Ou depoimentos</p>
-        </div>
-      </CardContent>
-    </Card>;
+  return;
 };
 const ContentSection = () => {
   const modules = [{
