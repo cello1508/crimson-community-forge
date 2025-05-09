@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
-import { WhatsappIcon } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 interface WhatsappCaptureDialogProps {
   isOpen: boolean;
@@ -79,7 +79,7 @@ const WhatsappCaptureDialog = ({
                   <FormLabel>Seu WhatsApp</FormLabel>
                   <FormControl>
                     <div className="flex items-center gap-2 border rounded-md px-3 bg-background focus-within:ring-1 focus-within:ring-ring">
-                      <WhatsappIcon className="text-green-500 w-4 h-4" />
+                      <MessageSquare className="text-green-500 w-4 h-4" />
                       <Input
                         placeholder="(DDD) 99999-9999"
                         {...field}
