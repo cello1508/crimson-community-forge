@@ -68,9 +68,7 @@ const ContentSection = () => {
   }];
   const extraContent = ["aula 01", "aula 02", "aula 03"];
   return <section className="section-padding bg-black section-container">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-        Conteúdos/Entregáveis
-      </h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Conteúdos</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div className="space-y-4">
