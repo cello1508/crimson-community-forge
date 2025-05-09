@@ -12,10 +12,12 @@ import PricingSection from "@/components/PricingSection";
 import FaqSection from "@/components/FaqSection";
 import FooterSection from "@/components/FooterSection";
 import AgentsSection from "@/components/AgentsSection";
+import CountdownTimer from "@/components/CountdownTimer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-black text-white">
+      <CountdownTimer />
       <HeroSection />
       <TestimonialsCarousel />
       <BenefitsSection />
