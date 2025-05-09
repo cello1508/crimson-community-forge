@@ -49,7 +49,7 @@ const BenefitsSection = () => {
       <div className="section-container">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold mb-6 leading-tight">
-            Os <span className="text-crimson">benefícios</span> que você vai ter dentro da
+            Os <span className="text-crimson">benefícios</span> que você vai ter...
           </h2>
           <TypingAnimation 
             words={typingWords} 
