@@ -2,71 +2,67 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Database, Webhook, Code, Settings, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-
-const NodeIcon = ({ icon: Icon, delay }: { icon: React.ElementType, delay: number }) => {
+const NodeIcon = ({
+  icon: Icon,
+  delay
+}: {
+  icon: React.ElementType;
+  delay: number;
+}) => {
   const [visible, setVisible] = useState(false);
-  
   useEffect(() => {
     // Set initial delay before starting animation
     const timer = setTimeout(() => {
       setVisible(true);
     }, delay);
-    
     return () => clearTimeout(timer);
   }, [delay]);
-  
   useEffect(() => {
     if (!visible) return;
-    
+
     // Create animation loop that toggles visibility every few seconds
     const interval = setInterval(() => {
       setVisible(prev => !prev);
     }, 3000 + Math.random() * 2000); // Random interval between 3-5 seconds
-    
+
     return () => clearInterval(interval);
   }, [visible]);
-
-  return (
-    <div 
-      className={`absolute transform transition-all duration-700 ease-in-out ${
-        visible 
-          ? "opacity-100 scale-100" 
-          : "opacity-0 scale-50"
-      }`}
-      style={{
-        top: `${20 + Math.random() * 60}%`,
-        left: `${Math.random() * 80}%`,
-      }}
-    >
+  return <div className={`absolute transform transition-all duration-700 ease-in-out ${visible ? "opacity-100 scale-100" : "opacity-0 scale-50"}`} style={{
+    top: `${20 + Math.random() * 60}%`,
+    left: `${Math.random() * 80}%`
+  }}>
       <div className="bg-slate-800 p-3 rounded-md border border-slate-600 shadow-lg">
         <Icon className="h-7 w-7 text-blue-400" />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const HeroSection = () => {
-  const nodes = [
-    { icon: Database, delay: 300 },
-    { icon: Webhook, delay: 1000 },
-    { icon: Code, delay: 1700 },
-    { icon: Settings, delay: 2400 },
-    { icon: ArrowRight, delay: 3100 }
-  ];
-  
+  const nodes = [{
+    icon: Database,
+    delay: 300
+  }, {
+    icon: Webhook,
+    delay: 1000
+  }, {
+    icon: Code,
+    delay: 1700
+  }, {
+    icon: Settings,
+    delay: 2400
+  }, {
+    icon: ArrowRight,
+    delay: 3100
+  }];
   const isMobile = useIsMobile();
-
   return <section className="min-h-[80vh] flex flex-col items-center py-10 section-container relative overflow-hidden">
       {/* N8N Nodes Animation */}
       <div className="absolute inset-0 opacity-50 pointer-events-none">
-        {nodes.map((node, index) => (
-          <NodeIcon key={index} icon={node.icon} delay={node.delay} />
-        ))}
+        {nodes.map((node, index) => <NodeIcon key={index} icon={node.icon} delay={node.delay} />)}
       </div>
       
       <div className="flex flex-col md:flex-row w-full items-center z-10">
         <div className="flex-1 space-y-6 pr-0 md:pr-8 z-10 w-full">
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-center">
             Como Pessoas Sem Experiência Estão Faturando 15 Mil/mês com IA Usando Esse Checklist
           </h1>
           
