@@ -184,7 +184,7 @@ const AgentsSection = () => {
         </div>
         
         <div className="text-center mb-20 mt-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Os Agentes automáticos vendem perfeitamente para...</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 pt-10">Os Agentes são perfeitos para...</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
