@@ -19,6 +19,7 @@ interface PricingCardProps {
   }[];
   priorityNote?: string;
   dailyPrice?: string;
+  checkoutUrl: string;
 }
 
 const PricingCard = ({
@@ -32,7 +33,8 @@ const PricingCard = ({
   discountText,
   bonuses,
   priorityNote,
-  dailyPrice
+  dailyPrice,
+  checkoutUrl
 }: PricingCardProps) => {
   return <Card className={`border-zinc-800 bg-black h-full flex flex-col ${highlight ? 'border-2 border-crimson/70' : ''}`}>
       <CardContent className="p-8 flex flex-col h-full">
@@ -84,7 +86,10 @@ const PricingCard = ({
           </div>}
         
         {/* CTA Button */}
-        <Button className={`w-full ${highlight ? 'bg-crimson hover:bg-crimson/90' : 'bg-white/10 hover:bg-white/20'}`}>
+        <Button 
+          className={`w-full ${highlight ? 'bg-crimson hover:bg-crimson/90' : 'bg-white/10 hover:bg-white/20'}`}
+          onClick={() => window.open(checkoutUrl, "_blank")}
+        >
           {ctaText}
         </Button>
       </CardContent>
@@ -96,7 +101,8 @@ const PricingSection = () => {
     title: "7 dias",
     subtitle: "Perfeito para ver se é para você",
     price: "47,00",
-    features: ["7 dias de acesso a comunidade", "Todos os conteúdos gravados", "Acesso as Calls de Suporte semanais", "Acesso as atualizações semanais da comunidade", "Aulas do Zero no N8n"]
+    features: ["7 dias de acesso a comunidade", "Todos os conteúdos gravados", "Acesso as Calls de Suporte semanais", "Acesso as atualizações semanais da comunidade", "Aulas do Zero no N8n"],
+    checkoutUrl: "https://pay.cakto.com.br/3424xec"
   }, {
     title: "Trimestral",
     price: "297,00",
@@ -104,7 +110,8 @@ const PricingSection = () => {
     bonuses: [{
       title: "Agente Gerador de Prompt",
       description: "Nosso Agente GPT que melhora e organiza nossos prompts para desenvolver IAs para clientes em 76% mais assertivo"
-    }]
+    }],
+    checkoutUrl: "https://pay.kirvano.com/ef07a61a-387c-4dc2-82bd-4bcb951904c3"
   }, {
     title: "Anual - Mais indicado",
     price: "797,00",
@@ -123,7 +130,8 @@ const PricingSection = () => {
     }, {
       title: "Agente Gerador de Prompt",
       description: "Nosso Agente GPT que melhora e organiza nossos prompts para desenvolver IAs para clientes em 76% mais assertivo"
-    }]
+    }],
+    checkoutUrl: "https://pay.kirvano.com/ca5d5160-11ec-4ee5-b391-98f6e9487211"
   }];
   return <section className="section-padding bg-black section-container">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
@@ -131,7 +139,7 @@ const PricingSection = () => {
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {plans.map((plan, index) => <PricingCard key={index} title={plan.title} subtitle={plan.subtitle} price={plan.price} features={plan.features} highlight={plan.highlight} originalPrice={plan.originalPrice} discountText={plan.discountText} bonuses={plan.bonuses} priorityNote={plan.priorityNote} dailyPrice={plan.dailyPrice} />)}
+        {plans.map((plan, index) => <PricingCard key={index} title={plan.title} subtitle={plan.subtitle} price={plan.price} features={plan.features} highlight={plan.highlight} originalPrice={plan.originalPrice} discountText={plan.discountText} bonuses={plan.bonuses} priorityNote={plan.priorityNote} dailyPrice={plan.dailyPrice} checkoutUrl={plan.checkoutUrl} />)}
       </div>
     </section>;
 };
