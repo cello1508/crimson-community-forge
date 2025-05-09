@@ -71,6 +71,7 @@ const WhatsappCaptureDialog = ({
       const data = await response.json();
       
       if (data.valid) {
+        // Pass the WhatsApp number to parent component
         onSubmit(fullWhatsappNumber);
         form.reset();
         toast({

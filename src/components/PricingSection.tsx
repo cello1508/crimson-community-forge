@@ -130,9 +130,11 @@ const PricingSection = () => {
       console.error("Error saving lead:", error);
     }
     
-    // Close dialog and redirect
+    // Close dialog and redirect in the same tab
     setDialogOpen(false);
-    window.open(selectedPlan.checkoutUrl, "_blank");
+    
+    // Use window.location.href instead of window.open to redirect in the same tab
+    window.location.href = selectedPlan.checkoutUrl;
   };
 
   const plans = [{
