@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 const FooterSection = () => {
@@ -14,7 +15,7 @@ const FooterSection = () => {
           </Button>
           
           <div className="text-sm text-white/40">
-            <p>© {new Date().getFullYear()} Crimson Community Forge. Todos os direitos reservados.</p>
+            <p>© {new Date().getFullYear()} MGTInc e Marcelo Anders. Todos os direitos reservados.</p>
             <div className="flex justify-center gap-4 mt-4">
               <a href="#" className="hover:text-crimson">Termos de Uso</a>
               <a href="#" className="hover:text-crimson">Política de Privacidade</a>
