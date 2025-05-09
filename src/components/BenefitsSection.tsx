@@ -1,70 +1,82 @@
 
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import TypingAnimation from "./TypingAnimation";
 
-interface BenefitCardProps {
-  title: string;
-  description: string;
-  emoji: string;
-}
-
-const BenefitCard = ({
-  title,
-  description,
-  emoji
-}: BenefitCardProps) => {
-  return <Card className="bg-dark border border-white/10 hover:border-crimson/50 transition-all duration-300">
-      <CardContent className="p-6">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-2xl" role="img" aria-label="benefit icon">{emoji}</span>
-          <h3 className="text-xl font-semibold">{title}</h3>
-        </div>
-        <p className="text-white/70">{description}</p>
-      </CardContent>
-    </Card>;
-};
+// Different benefit cards
+const benefitCards = [
+  {
+    title: "AULAS AO VIVO",
+    description: "Todas as aulas ao vivo são gravadas e disponibilizadas na área de membros",
+  },
+  {
+    title: "SUPORTE",
+    description: "Suporte prioritário no grupo privado somente para membros",
+  },
+  {
+    title: "CONEXÕES",
+    description: "Acesso a todos os membros da comunidade e suas conexões",
+  },
+  {
+    title: "EVENTOS",
+    description: "Descontos e prioridade na participação de eventos presenciais e online",
+  },
+  {
+    title: "ATUALIZAÇÃO",
+    description: "Novas funcionalidades e estratégias atualizadas mensalmente",
+  },
+  {
+    title: "RESULTADOS",
+    description: "Equipe dedicada a acompanhar o seu progresso",
+  }
+];
 
 const BenefitsSection = () => {
-  const isMobile = useIsMobile();
-  
-  const benefits = [
-    {
-      title: "Call de suporte toda Quarta feira",
-      description: "Por mais que tem muita coisa que voce pode aprender gratuitamente pela internet, sao conteudos dispersos e vai surgir duvidas em sua mente durante o processo ou até mesmo erro na hora de montar a automacao, acredite 87% dos membros da comunidade relatam isso",
-      emoji: "📞"
-    }, {
-      title: "Comunidade Ativa",
-      description: "Converse e tire duvidas com pessoas que ja implementao, vendem, desenvolvem ou até mesmo compram seus projetos. A comunidade do checklist exietem pioneiros na aréa e profissionais que ja faturam 6 digitos mes",
-      emoji: "👥"
-    }, {
-      title: "Atualizacoes de Aulas",
-      description: "Muitos cursos por ai te dao passo a passos desatualizados, e nesse mercado de IA e Agentes, voce nao pode depender disso, na mesmo velocidade da tecnologia o seu conhecimento tambem precisa se atualizar!",
-      emoji: "🔄"
-    }, {
-      title: "Imersoes gratuitas",
-      description: "Aprenda sobre posicionamento, trafego pago, micro saas, empreendedorismo, copy, estrategias alem das automacoes, a automacao é a ferramenta! ISSO NINGUEM TE FALA",
-      emoji: "🚀"
-    }
+  // Words for the typing animation
+  const typingWords = [
+    "COMUNIDADE", 
+    "AULAS DO ZERO", 
+    "ENCONTROS", 
+    "ATUALIZAÇÕES", 
+    "VENDAS", 
+    "SUPORTE 24HRS", 
+    "SKIN IN THE GAME"
   ];
-  
-  return <section className="section-padding section-container min-h-[600px] flex items-center">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
-        <div className="lg:col-span-5 space-y-6 flex flex-col">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 md:mb-28">Você estará com pioneiros no mercado de Agentes de IA e Automações.</h2>
-          
-          <div className={`flex justify-center ${isMobile ? "mt-8 mb-16" : "py-12"}`}>
-            <div className="w-64 h-64 rounded-full border-2 border-white/20 flex items-center justify-center relative animate-pulse-slow">
-              <span className="text-2xl font-medium">COMUNIDADE</span>
-            </div>
-          </div>
+
+  return (
+    <section className="py-16 relative overflow-hidden">
+      <div className="section-container">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold mb-6 leading-tight">
+            Os <span className="text-crimson">benefícios</span> que você vai ter dentro da
+          </h2>
+          <TypingAnimation 
+            words={typingWords} 
+            className="text-2xl font-medium text-crimson"
+            typingSpeed={100}
+            erasingSpeed={80}
+            delayBetweenWords={2000}
+          />
         </div>
 
-        <div className="lg:col-span-7 space-y-6">
-          {benefits.map((benefit, index) => <BenefitCard key={index} {...benefit} />)}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          {benefitCards.map((card, index) => (
+            <Card key={index} className="container-dark p-6 border-crimson/30 hover:border-crimson/70 transition-colors duration-300">
+              <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
+              <p className="text-gray-300 mb-4">{card.description}</p>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Button className="bg-crimson hover:bg-crimson/90 text-white px-8 py-6 text-lg rounded-md">
+            Quero fazer parte
+          </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default BenefitsSection;
