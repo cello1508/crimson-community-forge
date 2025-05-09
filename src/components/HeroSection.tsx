@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Database, Webhook, Code, Settings, FlowArrow } from "lucide-react";
+import { Database, Webhook, Code, Settings, ArrowRight } from "lucide-react";
 
 const NodeIcon = ({ icon: Icon, delay }: { icon: React.ElementType, delay: number }) => {
   const [visible, setVisible] = useState(false);
@@ -51,7 +51,7 @@ const HeroSection = () => {
     { icon: Webhook, delay: 1000 },
     { icon: Code, delay: 1700 },
     { icon: Settings, delay: 2400 },
-    { icon: FlowArrow, delay: 3100 }
+    { icon: ArrowRight, delay: 3100 }
   ];
 
   return <section className="min-h-[80vh] flex flex-col md:flex-row items-center py-10 section-container relative overflow-hidden">
