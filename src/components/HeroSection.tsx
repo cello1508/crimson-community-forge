@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Database, Webhook, Code, Settings, ArrowRight } from "lucide-react";
@@ -67,44 +66,31 @@ const HeroSection = () => {
       
       <div className="flex flex-col md:flex-row w-full items-center z-10">
         <div className="flex-1 space-y-6 pr-0 md:pr-8 z-10 w-full">
-          <div className="mb-8">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              Como Pessoas Sem Experiência Estão Faturando 15 Mil/mês com IA Usando Esse Checklist
-            </h1>
-            <h2 className="text-2xl md:text-3xl mb-4 text-crimson font-semibold">A comunidade de Agentes | n8n que mais cresce no brasil 🇧🇷</h2>
-            <p className="text-lg md:text-xl text-white/80">
-              Não precisa saber programar, esse é o mercado que mais está tornando pessoas comuns com salários de médicos formados, porque apenas estão no lugar certo na hora certa
-            </p>
-          </div>
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+            Como Pessoas Sem Experiência Estão Faturando 15 Mil/mês com IA Usando Esse Checklist
+          </h1>
           
-          {/* Vídeo no mobile, abaixo da headline */}
-          {isMobile && (
-            <div className="mb-8 w-full">
-              <div className="container-dark p-6 rounded-lg w-full mx-auto">
-                <div className="aspect-video rounded-lg overflow-hidden bg-black">
-                  <iframe className="w-full h-full" src="https://www.youtube.com/embed/zKk3rnqlGLY" title="Demonstração da comunidade" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-                  </iframe>
-                </div>
-              </div>
-            </div>
-          )}
-          
-          <Button className="bg-crimson hover:bg-crimson/90 text-white px-8 py-6 text-lg rounded-md">
-            Quero fazer parte da comunidade
-          </Button>
-        </div>
-        
-        {/* Vídeo no desktop, ao lado da headline */}
-        {!isMobile && (
-          <div className="flex-1 mt-10 md:mt-0 z-10">
-            <div className="container-dark p-6 rounded-lg w-full max-w-xl mx-auto">
+          {/* Vídeo logo abaixo do título principal em ambos desktop e mobile */}
+          <div className="mb-8 w-full">
+            <div className="container-dark p-6 rounded-lg w-full mx-auto">
               <div className="aspect-video rounded-lg overflow-hidden bg-black">
                 <iframe className="w-full h-full" src="https://www.youtube.com/embed/zKk3rnqlGLY" title="Demonstração da comunidade" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
                 </iframe>
               </div>
             </div>
           </div>
-        )}
+          
+          <h2 className="text-2xl md:text-3xl mb-4 text-crimson font-semibold">A comunidade de Agentes | n8n que mais cresce no brasil 🇧🇷</h2>
+          <p className="text-lg md:text-xl text-white/80">
+            Não precisa saber programar, esse é o mercado que mais está tornando pessoas comuns com salários de médicos formados, porque apenas estão no lugar certo na hora certa
+          </p>
+          
+          <Button className="bg-crimson hover:bg-crimson/90 text-white px-8 py-6 text-lg rounded-md">
+            Quero fazer parte da comunidade
+          </Button>
+        </div>
+        
+        {/* Removido o vídeo condicional que estava aqui para desktop */}
       </div>
     </section>;
 };
