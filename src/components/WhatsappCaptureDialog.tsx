@@ -8,7 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
-import { MessageSquare, Loader2 } from "lucide-react";
+import { MessageSquare, Loader2, Phone } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface WhatsappCaptureDialogProps {
   isOpen: boolean;
@@ -18,6 +19,7 @@ interface WhatsappCaptureDialogProps {
 }
 
 const formSchema = z.object({
+  countryCode: z.string().default("+55"),
   whatsapp: z
     .string()
     .min(10, "Número deve ter pelo menos 10 dígitos")
@@ -26,6 +28,13 @@ const formSchema = z.object({
       message: "Apenas números são permitidos",
     }),
 });
+
+const countryCodes = [
+  { value: "+55", label: "Brasil 🇧🇷 (+55)" },
+  { value: "+1", label: "EUA 🇺🇸 (+1)" },
+  { value: "+351", label: "Portugal 🇵🇹 (+351)" },
+  { value: "+54", label: "Argentina 🇦🇷 (+54)" },
+];
 
 const WhatsappCaptureDialog = ({
   isOpen,
@@ -39,6 +48,7 @@ const WhatsappCaptureDialog = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      countryCode: "+55",
       whatsapp: "",
     },
   });
@@ -47,19 +57,21 @@ const WhatsappCaptureDialog = ({
     try {
       setIsVerifying(true);
       
+      const fullWhatsappNumber = `${values.countryCode}${values.whatsapp}`;
+      
       // Call webhook to verify if WhatsApp number is valid
       const response = await fetch("https://auto.mgtautomacoes.cloud/webhook-test/verifica-whatsapp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ whatsapp: values.whatsapp }),
+        body: JSON.stringify({ whatsapp: fullWhatsappNumber }),
       });
       
       const data = await response.json();
       
       if (data.valid) {
-        onSubmit(values.whatsapp);
+        onSubmit(fullWhatsappNumber);
         form.reset();
         toast({
           title: "WhatsApp verificado!",
@@ -99,13 +111,41 @@ const WhatsappCaptureDialog = ({
           <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
             <FormField
               control={form.control}
+              name="countryCode"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>País</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    disabled={isVerifying}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Selecione o país" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {countryCodes.map((country) => (
+                        <SelectItem key={country.value} value={country.value}>
+                          {country.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="whatsapp"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Seu WhatsApp</FormLabel>
                   <FormControl>
                     <div className="flex items-center gap-2 border rounded-md px-3 bg-background focus-within:ring-1 focus-within:ring-ring">
-                      <MessageSquare className="text-green-500 w-4 h-4" />
+                      <Phone className="text-green-500 w-4 h-4" />
                       <Input
                         placeholder="(DDD) 99999-9999"
                         {...field}
