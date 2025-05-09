@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -171,7 +172,7 @@ const PricingSection = () => {
       title: "Agente Gerador de Prompt",
       description: "Nosso Agente GPT que melhora e organiza nossos prompts para desenvolver IAs para clientes em 76% mais assertivo"
     }],
-    checkoutUrl: "https://pay.kirvano.com/ca5d5160-11ec-4ee5-b391-98f6e9487211"
+    checkoutUrl: "https://pay.kirvano.com/f67e495b-71df-4971-8518-923f7f76fc32"
   }];
   
   return <section className="section-padding bg-black section-container">
@@ -211,3 +212,4 @@ const PricingSection = () => {
 };
 
 export default PricingSection;
+
